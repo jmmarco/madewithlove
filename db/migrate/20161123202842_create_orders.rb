@@ -4,8 +4,8 @@ class CreateOrders < ActiveRecord::Migration[5.0]
       t.integer :patron_id
       t.integer :meal_id
       t.integer :quantity
-      t.double :total_price
-      t.varchar :destination_address
+      t.decimal :total_price
+      t.string :destination_address
       t.datetime :delivery_time
 
       t.timestamps
