@@ -36,6 +36,8 @@ gem 'oauth2'
 gem 'hirb'
 # Add json support
 gem 'json'
+# Add pry for debugging
+gem 'pry'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
