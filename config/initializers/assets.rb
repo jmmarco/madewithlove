@@ -11,4 +11,4 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 
 # Add support for Bootstrap Fonts
-Rails.config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/
+#app.config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
