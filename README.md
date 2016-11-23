@@ -1,24 +1,10 @@
-# README
+# madewithlove
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Is a way to get the food for your weekday. Pick a meal for each day of the week from
+people who like to make and prepare them with love.
 
-Things you may want to cover:
+## The Team
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Hoa Huynh
+- Juan Marco
+- Katrina Tollin
