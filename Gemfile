@@ -38,6 +38,8 @@ gem 'hirb'
 gem 'json'
 # Add pry for debugging
 gem 'pry'
+# Add dotenv to save env variables
+gem 'dotenv'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
