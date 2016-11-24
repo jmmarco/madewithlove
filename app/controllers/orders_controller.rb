@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  include ApplicationHelper
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
   # GET /orders

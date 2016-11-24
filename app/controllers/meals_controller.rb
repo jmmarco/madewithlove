@@ -1,4 +1,5 @@
 class MealsController < ApplicationController
+  include ApplicationHelper
   before_action :set_meal, only: [:show, :edit, :update, :destroy]
 
   # GET /meals
