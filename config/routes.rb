@@ -11,4 +11,6 @@ Rails.application.routes.draw do
 
   get "/success" => "auth#success"
 
+  get "/users/:id" => "users#show"
+
 end
