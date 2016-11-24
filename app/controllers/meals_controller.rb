@@ -11,7 +11,8 @@ class MealsController < ApplicationController
   # GET /meals/1
   # GET /meals/1.json
   def show
-    @meal = Meal.find(params[:id])
+    # @meal = Meal.find(params[:id])
+    set_meal
   end
 
   # GET /meals/new

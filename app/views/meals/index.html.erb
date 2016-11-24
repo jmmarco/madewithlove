@@ -11,6 +11,8 @@
 
   <tbody>
     <% @meals.each do |meal| %>
+      <%= render :partial => "meal", :locals =>
+  { :@meal => meal } %>
       <tr>
         <td><%= link_to 'Show', meal %></td>
         <td><%= link_to 'Edit', edit_meal_path(meal) %></td>
