@@ -1,0 +1,24 @@
+<p>
+  <strong>Name:</strong>
+  <%= @meal.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @meal.description %>
+</p>
+
+<p>
+  <strong>Cuisine:</strong>
+  <%= @meal.cuisine %>
+</p>
+
+<p>
+  <strong>Chef:</strong>
+  <%= @meal.chef.first_name %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= number_to_currency @meal.price %>
+</p>
