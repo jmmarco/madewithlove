@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FinalProject</title>
+    <title>madewithlove</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <!-- Make sure all content is inside a Bootstrap container div -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9">
+          <h1 class="main-title"><a href="/">madewithlove</a></h1>
+          </div>
+          <div class="col-md-3">
+          <% if current_user %>
+            Welcome: <a href="/users/<%= current_user.id %>"><%= current_user.email %></a>
+            |
+            <a href="/logout">Log out</a>
+          <% else %>
+            Hi Stranger!
+            <a href="/login">Login</a>
+            |
+            <a href="/register">Register</a>
+          <% end %>
+        </div>
+      </div>
+      <%= yield %>
+    </div>
   </body>
 </html>
