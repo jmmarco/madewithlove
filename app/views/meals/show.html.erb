@@ -1,0 +1,8 @@
+<p id="notice"><%= notice %></p>
+
+<%= image_tag @meal.image.url(:large) %>
+<%= render :partial => "meal" %>
+
+
+
+<%= link_to 'Back', meals_path %>
