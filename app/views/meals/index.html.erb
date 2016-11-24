@@ -13,15 +13,12 @@
     <% @meals.each do |meal| %>
       <%= render :partial => "meal", :locals =>
   { :@meal => meal } %>
-      <tr>
-        <td><%= link_to 'Show', meal %></td>
-        <td><%= link_to 'Edit', edit_meal_path(meal) %></td>
-        <td><%= link_to 'Destroy', meal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <%= image_tag meal.image.url(:medium) %>
     <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Meal', new_meal_path %>
+<%= link_to 'New Meal', new_meal_path %> |
+<%= link_to 'Back', index_path_path %>
