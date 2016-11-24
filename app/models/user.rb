@@ -7,6 +7,6 @@ class User < ApplicationRecord
   has_many :supported_chef, through: :purchased_meals, source: :chef
 
   # Validations
-  validates :first_name, :last_name, :email, :password, :type, presence: true
+  validates :first_name, :last_name, :email, presence: true
   validates :email, uniqueness: true
 end
