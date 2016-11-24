@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-md-12">
+    <h3>Profile Details</h3>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-md-3">
+    <img class="img-responsive avatar" src="<%= @user.avatar %>" alt="Profile Picture">
+    <br>
+    <p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
+    <p>Email: <%= @user.email %></p>
+    <p>Member since: <%= Time.at(@user.created_at).strftime("%B %e, %Y") %></p>
+  </div>
+  <div class="col-md-3 col-md-offset-6">
+    <h4>Order history</h4>
+  </div>
+</div>
