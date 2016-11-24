@@ -1,5 +1,30 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <strong>Name:</strong>
+  <%= @meal.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @meal.description %>
+</p>
+
+<p>
+  <strong>Cuisine:</strong>
+  <%= @meal.cuisine %>
+</p>
+
+<p>
+  <strong>Chef:</strong>
+  <%= @meal.chef.first_name %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= number_to_currency @meal.price %>
+</p>
+
 
 <%= link_to 'Edit', edit_meal_path(@meal) %> |
 <%= link_to 'Back', meals_path %>
