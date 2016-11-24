@@ -1,5 +1,5 @@
 <tbody>
-  <% @orders.each do |order| %>
+  <% orders.each do |order| %>
     <tr>
       <td><%= order.meal.chef_id %></td>   <!-- roundabout way, using meal_id to get to chef_id -->
       <td><%= order.meal_id %></td>
