@@ -7,7 +7,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :password
       t.string :oauth_token
       t.string :oauth_secret
-      t.string :type
+      t.string :user_type
       t.string :bio
       t.string :street_address
       t.integer :zip_code
