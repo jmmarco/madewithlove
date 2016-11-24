@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   resources :meals
+  resources :orders
+  resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get '/' => 'application#index', :as => :index_path
 
@@ -10,5 +12,7 @@ Rails.application.routes.draw do
   get "/logout" => "auth#clear"
 
   get "/success" => "auth#success"
+
+  get "/users/:id" => "users#show"
 
 end
