@@ -15,7 +15,7 @@
 
 <p>
   <strong>Chef:</strong>
-  <%= @meal.chef.first_name %>
+  <%= link_to @meal.chef.first_name, user_path(@meal.chef) %>
 </p>
 
 <p>
