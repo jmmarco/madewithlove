@@ -9,24 +9,28 @@
 
   <body>
     <!-- Make sure all content is inside a Bootstrap container div -->
-    <div class="container">
-      <div class="row">
-        <div class="col-md-9">
-          <h1 class="main-title"><a href="/">madewithlove</a></h1>
-          </div>
-          <div class="col-md-3">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-heart"></span> madewithlove</a>
+        <div class="navbar-text navbar-right">
           <% if current_user %>
-            Welcome: <a href="/users/<%= current_user.id %>"><%= current_user.email %></a>
-            |
-            <a href="/logout">Log out</a>
+            <a id="profile" href="/users/<%= current_user.id %>" class="navbar-link" data-toggle="popover" data-html="true">
+              <img class="navbar-avatar pull-right" src="<%= current_user.avatar %>" alt="<%= current_user.first_name %>">
+            </a>
           <% else %>
-            Hi Stranger!
             <a href="/login">Login</a>
-            |
-            <a href="/register">Register</a>
+            <a href="/register">Sign Up</a>
           <% end %>
         </div>
+        <div id="profile-popover" class="hidden">
+          <ul>
+            <li><a href="/users/<%= current_user.id %>/edit"></a>Edit Profile</li>
+            <li><a href="logout">Logout</a></li>
+          </ul>
+        </div>
       </div>
+    </nav>
+    <div class="container">
       <%= yield %>
     </div>
   </body>
