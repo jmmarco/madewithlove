@@ -4,3 +4,9 @@
   width: 30%;
   height: auto;
 }
+
+.carousel-inner {
+  min-width: 100%;
+  height: 550px;
+  object-fit: cover;
+}
