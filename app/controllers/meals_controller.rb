@@ -12,6 +12,7 @@ class MealsController < ApplicationController
   # GET /meals/1.json
   def show
     # @meal = Meal.find(params[:id])
+    @order = Order.new
     set_meal
   end
 

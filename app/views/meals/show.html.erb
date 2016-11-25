@@ -2,7 +2,8 @@
 
 <%= image_tag @meal.image.url(:large) %>
 <%= render :partial => "meal" %>
-
-
+<hr>
+<%= render :partial => "/orders/form", :locals => { :order => @order } %>
 
 <%= link_to 'Back', meals_path %>
+

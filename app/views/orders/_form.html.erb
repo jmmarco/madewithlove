@@ -1,47 +1,41 @@
 <%= form_for(order) do |f| %>
-  <% if order.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+ <% if order.errors.any? %>
+   <div id="error_explanation">
+     <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
 
-      <ul>
-      <% order.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+     <ul>
+     <% order.errors.full_messages.each do |message| %>
+       <li><%= message %></li>
+     <% end %>
+     </ul>
+   </div>
+ <% end %>
 
-  <div class="field">
-    <%= f.label :patron_id %>
-    <%= f.number_field :patron_id %>
-  </div>
+ <%= f.hidden_field :patron_id, :value => current_user.id %>
 
-  <div class="field">
-    <%= f.label :meal_id %>
-    <%= f.number_field :meal_id %>
-  </div>
+ <%= f.hidden_field :meal_id, :value => @meal.id %>
 
-  <div class="field">
-    <%= f.label :quantity %>
-    <%= f.number_field :quantity %>
-  </div>
+ <div class="field">
+   <%= f.label :quantity %>
+   <%= f.number_field :quantity %>
+ </div>
 
-  <div class="field">
-    <%= f.label :total_price %>
-    <%= f.text_field :total_price %>
-  </div>
+ <div class="field">
+   <%= f.label :total_price %>
+   <%= f.text_field :total_price %>
+ </div>
 
-  <div class="field">
-    <%= f.label :destination_address %>
-    <%= f.text_field :destination_address %>
-  </div>
+ <div class="field">
+   <%= f.label :destination_address %>
+   <%= f.text_field :destination_address %>
+ </div>
 
-  <div class="field">
-    <%= f.label :delivery_time %>
-    <%= f.datetime_select :delivery_time %>
-  </div>
+ <div class="field">
+   <%= f.label :delivery_time %>
+   <%= f.datetime_select :delivery_time %>
+ </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+ <div class="actions">
+   <%= f.submit %>
+ </div>
 <% end %>
