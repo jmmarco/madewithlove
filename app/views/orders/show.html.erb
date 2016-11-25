@@ -1,13 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Patron:</strong>
-  <%= @order.patron_id %>
-</p>
 
 <p>
   <strong>Meal:</strong>
-  <%= @order.meal_id %>
+  <%= @order.meal.name %>
 </p>
 
 <p>
@@ -17,7 +13,7 @@
 
 <p>
   <strong>Total price:</strong>
-  <%= @order.total_price %>
+  <%= number_to_currency @order.total_price %>
 </p>
 
 <p>
@@ -27,7 +23,7 @@
 
 <p>
   <strong>Delivery time:</strong>
-  <%= @order.delivery_time %>
+  <%= Time.at(@order.delivery_time).strftime("%B %e, %Y, at %I:%M %p") %>
 </p>
 
 <%= link_to 'Edit', edit_order_path(@order) %> |
