@@ -6,8 +6,9 @@
 <% end %>
 
 <%= render :partial => "meal" %>
-<hr>
+
 <% if current_user %>
+  <hr>
   <%= render :partial => "/orders/form", :locals => { :order => @order } %>
 <% end %>
 
