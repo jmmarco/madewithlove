@@ -15,9 +15,10 @@
 
  <%= f.hidden_field :meal_id, :value => @meal.id %>
 
+
  <div class="field">
    <%= f.label :quantity %>
-   <%= f.number_field :quantity %>
+   <%= f.number_field :quantity, in: 1.0..6.0 %>
  </div>
 
  <div class="field">
