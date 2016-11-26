@@ -83,3 +83,102 @@ teresa_order.total_price = teresa_order.meal.price * teresa_order.quantity
 teresa_order.destination_address = teresa.street_address
 teresa_order.delivery_time = DateTime.new(2016,11,26,10,30,00, "-06:00")
 teresa_order.save
+
+salmon = Meal.new(name: 'Grilled Salmon', description: 'Salmon Grilled over charcoal with vegetables', cuisine: 'Americana', price: 5.00, seed_image: "/images/meals/grilled_salmon.jpeg" )
+
+salmon.chef = teresa
+salmon.save
+
+sally_order = Order.new
+sally_order.meal = salmon
+sally_order.patron_id = sally.id
+sally_order.quantity = 2
+sally_order.total_price = sally_order.meal.price * sally_order.quantity
+sally_order.destination_address = sally.street_address
+sally_order.delivery_time = DateTime.new(2016,11,26,16,00,00, "-06:00")
+sally_order.save
+
+mpasta = Meal.new(name: 'Mushroom Pasta', description: 'Creamy pasta with mushrooms', cuisine: 'Italian', price: 8.00, seed_image: "/images/meals/mushroom_pasta.jpeg" )
+
+mpasta.chef = arturo
+mpasta.save
+
+bill_order = Order.new
+bill_order.meal = mpasta
+bill_order.patron_id = bill.id
+bill_order.quantity = 2
+bill_order.total_price = bill_order.meal.price * bill_order.quantity
+bill_order.destination_address = bill.street_address
+bill_order.delivery_time = DateTime.new(2016,11,26,16,00,00, "-06:00")
+bill_order.save
+
+bpasta = Meal.new(name: 'Pasta Bolognase', description: 'Pasta with bolognase sauce', cuisine: 'Italian', price: 8.00, seed_image: "/images/meals/pasta_bolognase.jpg" )
+
+bpasta.chef = bill
+bpasta.save
+
+arturo_order = Order.new
+arturo_order.meal = bpasta
+arturo_order.patron_id = arturo.id
+arturo_order.quantity = 2
+arturo_order.total_price = arturo_order.meal.price * arturo_order.quantity
+arturo_order.destination_address = arturo.street_address
+arturo_order.delivery_time = DateTime.new(2016,11,26,16,00,00, "-06:00")
+arturo_order.save
+
+ppasta = Meal.new(name: 'Pesto Pasta', description: 'Pasta with pesto', cuisine: 'Italian', price: 8.00, seed_image: "/images/meals/pesto_pasta.jpg" )
+
+ppasta.chef = kate
+ppasta.save
+
+deppika_order = Order.new
+deppika_order.meal = ppasta
+deppika_order.patron_id = deppika.id
+deppika_order.quantity = 2
+deppika_order.total_price = deppika_order.meal.price * deppika_order.quantity
+deppika_order.destination_address = deppika.street_address
+deppika_order.delivery_time = DateTime.new(2016,11,26,16,00,00, "-06:00")
+deppika_order.save
+
+colcannon = Meal.new(name: 'Sausage Colcannon', description: 'Tasty Sausage with mashed potatos', cuisine: 'Americana', price: 9.00, seed_image: "/images/meals/sausage_colcannon.jpeg" )
+
+colcannon.chef = deppika
+colcannon.save
+
+kate_order = Order.new
+kate_order.meal = colcannon
+kate_order.patron_id = kate.id
+kate_order.quantity = 2
+kate_order.total_price = kate_order.meal.price * kate_order.quantity
+kate_order.destination_address = kate.street_address
+kate_order.delivery_time = DateTime.new(2016,11,26,16,00,00, "-06:00")
+kate_order.save
+
+
+salad = Meal.new(name: 'Scallop Egg Salad', description: 'Fresh salad with egg and scallops', cuisine: 'Americana', price: 9.00, seed_image: "/images/meals/scallop_egg_salad.jpeg" )
+
+salad.chef = sally
+salad.save
+
+teresa_order = Order.new
+teresa_order.meal = salad
+teresa_order.patron_id = teresa.id
+teresa_order.quantity = 2
+teresa_order.total_price = teresa_order.meal.price * teresa_order.quantity
+teresa_order.destination_address = teresa.street_address
+teresa_order.delivery_time = DateTime.new(2016,11,26,16,00,00, "-06:00")
+teresa_order.save
+
+noodles = Meal.new(name: 'Thai Tofu Noodles', description: 'Spicy Thai tofu noodles', cuisine: 'Thai', price: 6.00, seed_image: "/images/meals/tofu_thai_noodles.jpeg" )
+
+noodles.chef = teresa
+noodles.save
+
+sally_order = Order.new
+sally_order.meal = noodles
+sally_order.patron_id = sally.id
+sally_order.quantity = 2
+sally_order.total_price = sally_order.meal.price * sally_order.quantity
+sally_order.destination_address = sally.street_address
+sally_order.delivery_time = DateTime.new(2016,11,26,16,00,00, "-06:00")
+sally_order.save
