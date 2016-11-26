@@ -12,7 +12,8 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
-    set_order
+    #set_order
+    redirect_to '/'
   end
 
   # GET /orders/new
