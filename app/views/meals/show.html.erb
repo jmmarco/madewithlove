@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 <% if @meal.seed_image %>
-  <img src="<%= @meal.seed_image %>" alt="Meal Picture">
+  <img class="show_img" src="<%= @meal.seed_image %>" alt="Meal Picture">
 <% else %>
   <%= image_tag @meal.image.url(:large) %>
 <% end %>

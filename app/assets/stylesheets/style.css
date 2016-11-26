@@ -42,6 +42,16 @@ a:hover {
   background-color: transparent;
 }
 
+.index_img {
+  width:200px;
+  height: auto;
+}
+
+.show_img {
+  width:550px;
+  height: auto;
+}
+
 .main {
   height: 800px;
 }
