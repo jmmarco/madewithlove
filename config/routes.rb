@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  get "/meals/search" => "meals#index"
-  
+  get "/meals/search" => "meals#search"
+
   resources :meals
   resources :orders#, only: [:new, :create, :show, :edit, :update]
   resources :users
