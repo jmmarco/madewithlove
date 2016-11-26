@@ -1,8 +1,17 @@
 /* Custom Styles */
+body {
+  padding-bottom: 20px;
+}
+
+
 .avatar {
   border-radius: 50%;
   width: 30%;
   height: auto;
+}
+
+.glyphicon-heart {
+  font-size: 20px;
 }
 
 .navbar-avatar {
@@ -41,4 +50,17 @@ a:hover {
 .show_img {
   width:550px;
   height: auto;
+}
+
+.main {
+  height: 800px;
+}
+
+.social .fa {
+  color: #767676;
+  margin-right: 20px;
+}
+
+.popover{
+    max-width: 100%; /* Max Width of the popover (depending on the container!) */
 }
