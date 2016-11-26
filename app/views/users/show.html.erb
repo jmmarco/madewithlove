@@ -6,6 +6,7 @@
 <hr>
 <div class="row">
   <div class="col-md-3">
+  <p id="notice"><%= notice %></p>
   <% if @user.chef_avatar %>
     <img class="img-responsive avatar" src="<%= @user.chef_avatar %>" alt="Profile Picture">
   <% else %>
@@ -19,14 +20,8 @@
   <div class="col-md-3 col-md-offset-6">
     <h4>Order history</h4>
     <% @user.orders.each do |order| %>
-      <p>Chef: <%= order.meal.chef.first_name %></p>
-      <p>Meal #<%= order.meal_id %>: <%= order.meal.name %>
-      <p>Quantity: <%= order.quantity %></p>
-      <p>Total: <%= number_to_currency order.total_price %></p>
-      <p>Destination: <%= order.destination_address %></p>
-      <p>Delivery time: <%= Time.at(order.delivery_time).strftime("%B %e, %Y, at %I:%M %p") %></p>
+      <%= render :partial => "/orders/order", :locals => { :@order => order } %>
       <hr>
-
     <% end %>
 
   </div>
