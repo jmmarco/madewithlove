@@ -15,15 +15,9 @@
 
  <%= f.hidden_field :meal_id, :value => @meal.id %>
 
-
  <div class="field">
    <%= f.label :quantity %>
    <%= f.number_field :quantity, in: 1.0..6.0 %>
- </div>
-
- <div class="field">
-   <%= f.label :total_price %>
-   <%= f.text_field :total_price %>
  </div>
 
  <div class="field">
