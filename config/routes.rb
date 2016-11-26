@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  get "/meals/search" => "meals#index"
+  
   resources :meals
   resources :orders
   resources :users
@@ -14,5 +17,7 @@ Rails.application.routes.draw do
   get "/success" => "auth#success"
 
   get "/users/:id" => "users#show"
+
+
 
 end
