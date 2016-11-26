@@ -42,3 +42,15 @@
     <%= link_to 'View all meals', meals_path %>
   </div>
 </div>
+
+<div class="row">
+  <div class="col-md-12">
+    <%= form_tag("/meals/search", method: "get") do %>
+      <div class="form-group">
+        <%= label_tag(:q, "Search for meals:") %>
+        <%= text_field_tag :q, "", class: "form-control" %>
+        <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+      </div>
+    <% end %>
+  </div>
+</div>
