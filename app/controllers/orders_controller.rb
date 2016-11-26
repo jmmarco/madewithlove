@@ -45,6 +45,8 @@ class OrdersController < ApplicationController
   def update
     respond_to do |format|
       if @order.update(order_params)
+        @order.total_price = @order.meal.price * @order.quantity
+        @order.save
         format.html { redirect_to @order, notice: 'Order was successfully updated.' }
         format.json { render :show, status: :ok, location: @order }
       else
@@ -72,6 +74,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:patron_id, :meal_id, :quantity, :total_price, :destination_address, :delivery_time)
+      params.require(:order).permit(:patron_id, :meal_id, :quantity, :destination_address, :delivery_time)
     end
 end
