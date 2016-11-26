@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
+<% if @meal.seed_image %>
+  <img src="<%= @meal.seed_image %>" alt="Meal Picture">
+<% else %>
+  <%= image_tag @meal.image.url(:large) %>
+<% end %>
 
-<%= image_tag @meal.image.url(:large) %>
 <%= render :partial => "meal" %>
 <hr>
 <%= render :partial => "/orders/form", :locals => { :order => @order } %>
