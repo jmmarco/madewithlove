@@ -17,12 +17,7 @@
 
  <div class="field">
    <%= f.label :quantity %>
-   <%= f.number_field :quantity %>
- </div>
-
- <div class="field">
-   <%= f.label :total_price %>
-   <%= f.text_field :total_price %>
+   <%= f.number_field :quantity, in: 1.0..6.0 %>
  </div>
 
  <div class="field">
