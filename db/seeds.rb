@@ -21,8 +21,10 @@ burger.save
 bill_order = Order.new
 bill_order.meal = burger
 bill_order.patron_id = bill.id
-bill_order.quantity = 1
+bill_order.quantity = 2
 bill_order.total_price = bill_order.meal.price * bill_order.quantity
+bill_order.destination_address = bill.street_address
+bill_order.delivery_time = DateTime.new(2016,11,26,16,00,00, "-06:00")
 bill_order.save
 
 
@@ -36,6 +38,8 @@ arturo_order.meal = sandwich
 arturo_order.patron_id = arturo.id
 arturo_order.quantity = 1
 arturo_order.total_price = arturo_order.meal.price * arturo_order.quantity
+arturo_order.destination_address = arturo.street_address
+arturo_order.delivery_time = DateTime.new(2016,11,28,14,00,00, "-06:00")
 arturo_order.save
 
 pizza = Meal.new(name: 'Corn Pizza', description: 'Pizza with corn', cuisine: 'Americana', price: 5.00, seed_image: "/images/meals/corn_pizza.jpg" )
@@ -48,6 +52,8 @@ deppika_order.meal = pizza
 deppika_order.patron_id = deppika.id
 deppika_order.quantity = 1
 deppika_order.total_price = deppika_order.meal.price * deppika_order.quantity
+deppika_order.destination_address = deppika.street_address
+deppika_order.delivery_time = DateTime.new(2016,11,30,12,00,00, "-06:00")
 deppika_order.save
 
 breakfast = Meal.new(name: 'Euro Breakfast', description: 'Eggs toast and mushrooms', cuisine: 'Americana', price: 5.00, seed_image: "/images/meals/euro_breakfast.jpeg" )
@@ -58,8 +64,10 @@ breakfast.save
 kate_order = Order.new
 kate_order.meal = breakfast
 kate_order.patron_id = kate.id
-kate_order.quantity = 1
+kate_order.quantity = 3
 kate_order.total_price = kate_order.meal.price * kate_order.quantity
+kate_order.destination_address = kate.street_address
+kate_order.delivery_time = DateTime.new(2016,12,01,8,30,00, "-06:00")
 kate_order.save
 
 crepes = Meal.new(name: 'Fruit Crepes', description: 'Crepes with fruit', cuisine: 'Americana', price: 5.00, seed_image: "/images/meals/fruit_crepes.jpeg" )
@@ -72,4 +80,6 @@ teresa_order.meal = crepes
 teresa_order.patron_id = teresa.id
 teresa_order.quantity = 1
 teresa_order.total_price = teresa_order.meal.price * teresa_order.quantity
+teresa_order.destination_address = teresa.street_address
+teresa_order.delivery_time = DateTime.new(2016,11,26,10,30,00, "-06:00")
 teresa_order.save
