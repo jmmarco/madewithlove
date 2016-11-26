@@ -6,7 +6,11 @@
 <hr>
 <div class="row">
   <div class="col-md-3">
+  <% if @user.chef_avatar %>
+    <img class="img-responsive avatar" src="<%= @user.chef_avatar %>" alt="Profile Picture">
+  <% else %>
     <img class="img-responsive avatar" src="<%= @user.avatar %>" alt="Profile Picture">
+  <% end %>
     <br>
     <p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
     <p>Email: <%= @user.email %></p>

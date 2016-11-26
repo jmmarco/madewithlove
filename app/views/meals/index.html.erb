@@ -11,11 +11,15 @@
 
   <tbody>
     <% @meals.each do |meal| %>
-      <%= render :partial => "meal", :locals =>
-  { :@meal => meal } %>
-    <%= image_tag meal.image.url(:medium) %>
-    <br>
-    <br>
+      <%= render :partial => "meal", :locals => { :@meal => meal } %>
+
+      <% if @meal.seed_image %>
+        <img src="<%= @meal.seed_image %>" alt="Meal Picture">
+      <% else %>
+        <%= image_tag meal.image.url(:medium) %>
+      <% end %>
+      <br>
+      <br>
     <% end %>
   </tbody>
 </table>
