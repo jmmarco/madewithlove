@@ -5,7 +5,43 @@
   <%= @order.meal.name %>
 </p>
 
-<%= render 'form', order: @order %>
+<%= form_for(@order) do |f| %>
+ <% if @order.errors.any? %>
+   <div id="error_explanation">
+     <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+     <ul>
+     <% @order.errors.full_messages.each do |message| %>
+       <li><%= message %></li>
+     <% end %>
+     </ul>
+   </div>
+ <% end %>
+
+ <%= f.hidden_field :patron_id, :value => current_user.id %>
+
+ <%= f.hidden_field :meal_id, :value => @order.meal.id %>
+
+ <div class="field">
+   <%= f.label :quantity %>
+   <%= f.number_field :quantity, in: 1.0..6.0 %>
+ </div>
+
+ <div class="field">
+   <%= f.label :destination_address %>
+   <%= f.text_field :destination_address %>
+ </div>
+
+ <div class="field">
+   <%= f.label :delivery_time %>
+   <%= f.datetime_select :delivery_time %>
+ </div>
+
+ <div class="actions">
+   <%= f.submit %>
+ </div>
+<% end %>
+
 
 <%= link_to 'Show', @order %> |
 <%= link_to 'Back', orders_path %>
