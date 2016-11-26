@@ -6,8 +6,11 @@
 <% end %>
 
 <%= render :partial => "meal" %>
-<hr>
-<%= render :partial => "/orders/form", :locals => { :order => @order } %>
+
+<% if current_user %>
+  <hr>
+  <%= render :partial => "/orders/form", :locals => { :order => @order } %>
+<% end %>
 
 <%= link_to 'Back', meals_path %>
 
