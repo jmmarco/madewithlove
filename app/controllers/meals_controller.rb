@@ -17,7 +17,6 @@ class MealsController < ApplicationController
   end
 
   def search
-    #code
     @meals = Meal.search(params[:q])
   end
 
