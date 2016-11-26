@@ -16,6 +16,11 @@ class MealsController < ApplicationController
     set_meal
   end
 
+  def search
+    #code
+    @meals = Meal.search(params[:q])
+  end
+
   # GET /meals/new
   def new
     @meal = Meal.new

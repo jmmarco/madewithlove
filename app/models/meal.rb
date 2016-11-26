@@ -10,4 +10,16 @@ class Meal < ApplicationRecord
   # has_attached_file :seed_image
 
   accepts_nested_attributes_for :orders
+
+  def self.search(term)
+    results = []
+    if term
+      results << where('lower(name) LIKE ?', "%#{term.downcase}%").order('id DESC')
+    else
+      results << order('id DESC')
+    end
+
+    results.flatten
+  end
+
 end
