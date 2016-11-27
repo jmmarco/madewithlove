@@ -23,7 +23,7 @@
   <%= number_to_currency @meal.price %>
 </p>
 
-  <%= link_to 'Show', @meal %>
+<%= link_to 'Show', @meal %>
 <% if @meal.chef == current_user %> |
   <%= link_to 'Edit', edit_meal_path(@meal) %> |
   <%= link_to 'Destroy', @meal, method: :delete, data: { confirm: 'Are you sure?' } %>
