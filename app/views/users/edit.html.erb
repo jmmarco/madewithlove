@@ -18,8 +18,13 @@
             </ul>
           </div>
         <% end %>
+        <% if current_user.chef_avatar %>
+          <img class="img-responsive avatar" src="<%= @user.chef_avatar %>" alt="Profile Picture">
+        <% else %>
+          <img class="img-responsive avatar" src="<%= current_user.avatar %>" alt="Profile Picture">
+        <% end %>
         <div class="field">
-          <%= f.label :profile_image %>
+          <%= f.label :change_profile_image %>
           <%= f.file_field :chef_avatar %>
         </div>
         <div class="field">
