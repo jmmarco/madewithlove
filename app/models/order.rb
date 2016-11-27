@@ -17,6 +17,6 @@ class Order < ApplicationRecord
   end
 
   def delivery_time_must_be_no_more_than_four_weeks_in_advance
-    errors.add(:delivery_time, "must be no more than four weeks in advance") if !delivery_time? and DateTime.now + 28.days > delivery_time
+    errors.add(:delivery_time, "must be no more than four weeks in advance") if !delivery_time.blank? and DateTime.now < delivery_time - 28.days
   end
 end
