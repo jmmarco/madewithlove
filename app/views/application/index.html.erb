@@ -57,10 +57,10 @@
 
 <div class="row">
   <div class="col-md-12">
-    <%= form_tag("/meals/categories", method: "get") do %>
+    <%= form_tag("/meals/category", method: "get") do %>
       <div class="form-group">
-        <%= label_tag(:q, "Select a category:") %>
-        <%= select_tag(:meals, "<option>Americana</option><option>Chinese</option><option>Indian</option><option>Italian</option><option>Mexican</option><option>Thai</option>".html_safe) %>
+        <%= label_tag(:category, "Select a category:") %>
+        <%= select_tag(:category, "<option>Americana</option><option>Chinese</option><option>Indian</option><option>Italian</option><option>Mexican</option><option>Thai</option>".html_safe) %>
         <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
       </div>
     <% end %>

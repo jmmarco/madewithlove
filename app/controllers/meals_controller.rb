@@ -20,6 +20,10 @@ class MealsController < ApplicationController
     @meals = Meal.search(params[:q])
   end
 
+  def category
+    @meals = Meal.where(cuisine: params[:category])
+  end
+
   # GET /meals/new
   def new
     @meal = Meal.new

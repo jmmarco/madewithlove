@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
   get "/meals/search" => "meals#search"
-  get "/meals/categories" => "meals#categories"
+
+  get "/meals/category" => "meals#category"
 
   resources :meals
   resources :orders#, only: [:new, :create, :show, :edit, :update]
