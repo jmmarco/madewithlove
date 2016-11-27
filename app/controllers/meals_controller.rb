@@ -13,7 +13,7 @@ class MealsController < ApplicationController
   def show
     # @meal = Meal.find(params[:id])
     @order = Order.new
-    set_meal
+    @order.meal = set_meal
   end
 
   def search

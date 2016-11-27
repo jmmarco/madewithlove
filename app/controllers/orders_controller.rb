@@ -34,7 +34,7 @@ class OrdersController < ApplicationController
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
       else
-        format.html { render :new }
+        format.html { render :"new", :locals => { :order => @order, :meal => @order.meal } }
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end

@@ -25,5 +25,6 @@ module FinalProject
   end
 end
 
-
-
+class Application < Rails::Application
+  config.time_zone = "Central Time (US & Canada)"
+end
