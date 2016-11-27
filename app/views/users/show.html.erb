@@ -28,7 +28,7 @@
     </div>
   <% end %>
 
-  <% if !current_user %>
+  <% if @user.id != current_user.id %>
     <div class="col-md-3 col-md-offset-6">
       <h4>My Menu</h4>
       <% @user.prepared_meals.each do |meal| %>
