@@ -22,8 +22,10 @@ module FinalProject
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     # config.assets.paths << Rails.root.join("app", "assets", "images")
+    config.assets.paths << Rails.root.join('node_modules')
   end
 end
+
 
 class Application < Rails::Application
   config.time_zone = "Central Time (US & Canada)"

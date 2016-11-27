@@ -10,4 +10,7 @@ class User < ApplicationRecord
   # Validations
   validates :first_name, :last_name, :email, presence: true
   validates :email, uniqueness: true
+
+  geocoded_by :street_address
+  after_validation :geocode
 end
