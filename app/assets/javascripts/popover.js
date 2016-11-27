@@ -1,12 +1,5 @@
-$(document).ready(function() {
-  // // Add custom JS here
-
-});
-
-
 $(document).on('turbolinks:load', function() {
 
-   console.log('(document).turbolinks:load');
    $(function () {
      $('[data-toggle="popover"]').popover();
    });
