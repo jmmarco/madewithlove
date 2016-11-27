@@ -42,10 +42,6 @@ a:hover {
   background-color: transparent;
 }
 
-.index_img {
-  width:200px;
-  height: auto;
-}
 
 .show_img {
   width:550px;
@@ -63,4 +59,9 @@ a:hover {
 
 .popover{
     max-width: 100%; /* Max Width of the popover (depending on the container!) */
+}
+
+.single-meal {
+  height: 350px;
+  margin: 30px;
 }
