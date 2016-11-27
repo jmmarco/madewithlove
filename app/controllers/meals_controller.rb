@@ -22,6 +22,7 @@ class MealsController < ApplicationController
 
   def category
     @meals = Meal.where(cuisine: params[:category])
+    render "search"
   end
 
   # GET /meals/new
