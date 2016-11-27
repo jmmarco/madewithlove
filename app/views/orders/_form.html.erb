@@ -12,8 +12,7 @@
  <% end %>
 
  <%= f.hidden_field :patron_id, :value => current_user.id %>
-
- <%= f.hidden_field :meal_id, :value => meal.id %>
+ <%= f.hidden_field :meal_id, :value => order.meal.id %>
 
  <div class="field">
    <%= f.label :quantity %>

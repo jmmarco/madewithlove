@@ -27,4 +27,19 @@
       <% end %>
     </div>
   <% end %>
+
+  <% if @user.id || !current_user %>
+    <div class="col-md-3 col-md-offset-6">
+      <h4>My Menu</h4>
+      <% @user.prepared_meals.each do |meal| %>
+        <%= render :partial => "/meals/meal", :locals => { :@meal => meal } %>
+        <% if @meal.seed_image %>
+          <img class="img-responsive" src="<%= @meal.   seed_image %>" alt="Meal Picture">
+        <% else %>
+          <%= image_tag meal.image.url(:medium) %>
+        <% end %>
+        <hr>
+      <% end %>
+    </div>
+  <% end %>
 </div>

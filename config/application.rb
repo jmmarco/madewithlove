@@ -25,3 +25,8 @@ module FinalProject
     config.assets.paths << Rails.root.join('node_modules')
   end
 end
+
+
+class Application < Rails::Application
+  config.time_zone = "Central Time (US & Canada)"
+end

@@ -13,11 +13,16 @@ class MealsController < ApplicationController
   def show
     # @meal = Meal.find(params[:id])
     @order = Order.new
-    set_meal
+    @order.meal = set_meal
   end
 
   def search
     @meals = Meal.search(params[:q])
+  end
+
+  def category
+    @meals = Meal.where(cuisine: params[:category])
+    render "search"
   end
 
   # GET /meals/new
