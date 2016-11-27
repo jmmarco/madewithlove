@@ -5,7 +5,7 @@ class MealsController < ApplicationController
   # GET /meals
   # GET /meals.json
   def index
-    @meals = Meal.all
+    @meals = Meal.all.paginate(:page => params[:page], :per_page => 3)
   end
 
   # GET /meals/1
