@@ -40,6 +40,10 @@ gem 'json'
 gem 'pry'
 # Add dotenv to save env variables
 gem 'dotenv'
+# Add Geocoder gem for Google Maps
+gem 'geocoder'
+# Make thor fixed
+gem 'thor', '0.19.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

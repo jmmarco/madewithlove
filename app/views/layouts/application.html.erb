@@ -17,5 +17,16 @@
 
 
     <%= render 'layouts/footer' %>
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 30.279961, lng: -97.7440557},
+          zoom: 13
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzmOnXURd5fsGDcurhiD4oUGn13bFX928&callback=initMap"
+    async defer data-turbolinks-eval="false" ></script>
   </body>
 </html>

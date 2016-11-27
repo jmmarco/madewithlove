@@ -3,8 +3,9 @@ html {
   position: relative;
   min-height: 100%;
 }
+
 body {
-  padding-bottom: 20px;
+  padding-bottom: 30px;
 }
 
 .avatar {
@@ -62,8 +63,19 @@ a:hover {
 
 .footer {
   position: absolute;
-  bottom: 0px;
+  bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
-  height: 20px;
+  height: 30px;
+}
+
+.meal-listing {
+  max-height: 700px;
+  overflow-y: scroll;
+}
+
+#map {
+  margin: 30px;
+  width: 45%;
+  height: 700px;
 }
