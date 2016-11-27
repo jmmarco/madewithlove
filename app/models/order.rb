@@ -4,5 +4,10 @@ class Order < ApplicationRecord
 
   validates :quantity, :total_price, :destination_address, :delivery_time, presence: true
 
-  # validates :delivery_time_must_be_one_day_in_advance
+  validate :delivery_time_cant_be_in_the_past
+
+  def delivery_time_cant_be_in_the_past
+    errors.add(:delivery_time, "can't be in the past") if
+      !delivery_time.blank? and delivery_time < Time.now
+  end
 end
