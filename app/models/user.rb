@@ -11,6 +11,9 @@ class User < ApplicationRecord
   validates :first_name, :last_name, :email, presence: true
   validates :email, uniqueness: true
 
+  has_attached_file :updated_image, styles: { large: "600x600", medium: "300x300>", thumb: "150x150#" }, default_url: "/images/:style/missing.png"
+  validates_attachment_content_type :updated_image, content_type: /\Aimage\/.*\z/
+
   geocoded_by :street_address
   after_validation :geocode
 end
