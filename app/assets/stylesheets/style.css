@@ -84,7 +84,11 @@ a:hover {
   height: 700px;
 }
 
-.show_img {
-  width: 50%;
-  height: auto;
+.navbar {
+  margin-bottom: 0 !important;
+}
+
+.main-gallery img {
+  display: block;
+  height: 400px;
 }

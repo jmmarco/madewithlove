@@ -1,21 +1,18 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
-      <p id="notice"><%= notice %></p>
+    <div class="col-md-3">
       <% if @meal.seed_image %>
-        <img class="show_img" src="<%= @meal.seed_image %>" alt="Meal Picture">
+        <img class="img-responsive" src="<%= @meal.seed_image %>" alt="Meal Picture">
       <% else %>
         <%= image_tag @meal.image.url(:large) %>
       <% end %>
-
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <p id="notice"><%= notice %></p>
       <%= render :partial => "meal" %>
-      <hr>
-      <form>
-        <div class="form-group">
-          <label>Hello</label>
-          <input></input>
-        </div>
-      </form>
+
       <% if current_user %>
         <hr>
         <%= render :partial => "/orders/form", :locals => { :order => @order, :meal => @meal } %>
@@ -25,4 +22,3 @@
     </div>
   </div>
 </div>
-

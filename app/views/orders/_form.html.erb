@@ -1,40 +1,44 @@
-  <%= form_for(order) do |f| %>
-    <% if order.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+<%= form_for(order) do |f| %>
+  <div class="row">
+    <div class="col-md-6">
+      <% if order.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
 
-        <ul>
-        <% order.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
+          <ul>
+          <% order.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+  </div>
 
-      <%= f.hidden_field :patron_id, :value => current_user.id %>
-      <%= f.hidden_field :meal_id, :value => order.meal.id %>
-    <div class="form-group">
-      <div class="field">
+  <%= f.hidden_field :patron_id, :value => current_user.id %>
+  <%= f.hidden_field :meal_id, :value => order.meal.id %>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
         <%= f.label :quantity %>
-        <%= f.number_field :quantity, in: 1.0..6.0 %>
+        <%= f.number_field :quantity, in: 1.0..6.0, class: "form-control" %>
       </div>
-    </div>
-    <div class="form-group">
-      <div class="field">
-        <%= f.label :destination_address %>
-        <%= f.text_field :destination_address %>
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="field">
-        <%= f.label :delivery_time %>
-        <%= f.datetime_select :delivery_time %>
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="actions">
-        <%= f.submit :class => 'btn-default' %>
-      </div>
-    </div>
-  <% end %>
 
+      <div class="form-group">
+        <%= f.label :destination_address %>
+        <%= f.text_field :destination_address, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :delivery_time %>
+        <%= f.datetime_select :delivery_time, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.submit "Submit", class: "form-control btn btn-info" %>
+      </div>
+    </div>
+  </div>
+
+<% end %>

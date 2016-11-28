@@ -4,7 +4,14 @@
     <div class="navbar-text navbar-right">
       <% if current_user %>
         <a data-toggle="popover" id="profile" href="/users/<%= current_user.id %>" class="navbar-link">
-          <img class="navbar-avatar pull-right" src="<%= current_user.avatar %>" alt="<%= current_user.first_name %>">
+          <img class="navbar-avatar pull-right"
+            <% if current_user.updated_image_file_name %>
+              <%= image_tag current_user.updated_image.url(:large) %>
+            <% elsif current_user.chef_avatar %>
+              src="<%= current_user.chef_avatar %>"
+            <% else %>
+             src="<%= current_user.avatar %>"
+            <% end %>
         </a>
       <% else %>
         <a href="/login">Login</a>
