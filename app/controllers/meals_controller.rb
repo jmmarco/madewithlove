@@ -18,6 +18,25 @@ class MealsController < ApplicationController
 
   def search
     @meals = Meal.search(params[:q])
+    # if request.xhr?
+    #   # binding.pry
+    #   meals = @meals.to_json
+    #   return meals
+    # end
+
+    results = {}
+    @meals.each do |meal|
+      results["#{meal.name}"] = {}
+      results["#{meal.name}"][:chef] = meal.chef.first_name
+      results["#{meal.name}"][:coordinates] = meal.chef.geocode
+    end
+    if request.xhr?
+      render json: results
+    end
+    # respond_to do |format|
+    #   format.html  # index.html.erb
+    #   format.json  { render :json => @meals }
+    # end
   end
 
   def category
