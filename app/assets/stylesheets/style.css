@@ -83,3 +83,11 @@ a:hover {
   width: 45%;
   height: 700px;
 }
+.navbar {
+  margin-bottom: 0 !important;
+}
+
+.main-gallery img {
+  display: block;
+  height: 400px;
+}

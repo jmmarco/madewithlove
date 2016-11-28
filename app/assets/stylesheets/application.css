@@ -15,5 +15,6 @@
  *= require bootstrap
  *= require bootstrap-theme
  *= require font-awesome
- *= require style.css
+ *= require flickity
+ *= require style
  */
