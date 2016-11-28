@@ -1,18 +1,3 @@
-// var map;
-//
-// function initMap() {
-//   map = new google.maps.Map(document.getElementById("map"), {
-//     center: {
-//       lat: -34.397,
-//       lng: 150.644
-//     },
-//     zoom: 8
-//   });
-// }
-//
-// google.maps.event.addDomListener(window, "load", initialize);
-// require('dotenv').config();
-
 $(document).ready(function() {
 
 // function initMap() {
@@ -66,45 +51,21 @@ function initMap() {
   var markers = [];
 
 
-  console.log("Before Ajax request");
+  for (var i in map_results) {
+    var position = {
+      lat: map_results[i].coordinates[0],
+      lng: map_results[i].coordinates[1]
+    };
 
-  $.ajax({
-    method: "GET",
-    dataType: "json",
-    url: "/meals/search"
-  }).done(function(response) {
-    console.log("Yay");
-    // console.log(response);
-    //
-    // console.log(typeof response);
+    var title = map_results[i].chef_name;
 
-    for (var i in response) {
-      var position = {
-        lat: response[i].coordinates[0],
-        lng: response[i].coordinates[1]
-      };
+    var marker = new google.maps.Marker({
+      title: title,
+      map: map,
+      position: position,
+      animation: google.maps.Animation.DROP
+    });
 
-      var title = i;
-
-      var marker = new google.maps.Marker({
-        title: title,
-        map: map,
-        position: position,
-        animation: google.maps.Animation.DROP
-      });
-
-      markers.push(marker);
-
-      console.log(i);
-      // console.log(response[i]);
-      console.log(response[i].chef);
-      console.log(response[i].coordinates);
-    }
-
-
-  }).fail(function(error) {
-    console.log("Something went wrong");
-    console.log(error);
-  });
-
+    markers.push(marker);
+  }
 }
