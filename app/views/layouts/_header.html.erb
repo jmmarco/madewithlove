@@ -6,7 +6,7 @@
         <a data-toggle="popover" id="profile" href="/users/<%= current_user.id %>" class="navbar-link">
           <img class="navbar-avatar pull-right"
             <% if current_user.updated_image_file_name %>
-              <%= image_tag current_user.updated_image.url(:medium) %>
+              <%= image_tag current_user.updated_image.url(:large) %>
             <% elsif current_user.chef_avatar %>
               src="<%= current_user.chef_avatar %>"
             <% else %>
