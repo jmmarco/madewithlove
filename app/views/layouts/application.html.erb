@@ -16,7 +16,7 @@
       <%= yield %>
     </div>
 
-
+    <%= yield :page_js %>
     <%= render 'layouts/footer' %>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzmOnXURd5fsGDcurhiD4oUGn13bFX928&callback=initMap"
     async defer data-turbolinks-eval="false"></script>
