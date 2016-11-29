@@ -20,6 +20,25 @@ class MealsController < ApplicationController
     end
   end
 
+  def category
+    @meals = Meal.where(cuisine: params[:category])
+    @query = params[:category]
+
+    @results = []
+    @meals.each do |meal|
+      meal_hash = {}
+      meal_hash[:chef_name] = meal.chef.first_name
+      meal_hash[:coordinates] = meal.chef.geocode
+      @results << meal_hash
+    end
+
+    if request.xhr?
+      print results
+      render json: results
+    end
+    render "search"
+  end
+
   # GET /meals
   # GET /meals.json
   def index
@@ -32,11 +51,6 @@ class MealsController < ApplicationController
     # @meal = Meal.find(params[:id])
     @order = Order.new
     @order.meal = set_meal
-  end
-
-  def category
-    @meals = Meal.where(cuisine: params[:category])
-    render "search"
   end
 
   # GET /meals/new
