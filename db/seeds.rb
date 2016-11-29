@@ -6,12 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-arturo = User.create( first_name: 'Arturo', last_name: 'Gonzalez', email: 'arturo92@aol.com', password: 'password', bio: 'Soup lover', street_address: '2415 San Gabriel St', zip_code: 78705, chef_avatar: "/images/chefs/arturo_chef.jpg")
-bill = User.create( first_name: 'Bill', last_name: 'Trotter', email: 'bill-trott@compuserve.com', password: 'password', bio: 'food lover', street_address: '906 W 17th St', zip_code: 78701, chef_avatar: "/images/chefs/bill_chef.jpg")
-deppika = User.create( first_name: 'Deppika', last_name: 'Chopra', email: 'deppika@hotmail.com', password: 'password', bio: 'Curry lover', street_address: '612 Nueces St', zip_code: 78701, chef_avatar: "/images/chefs/deppika_chef.jpg")
+arturo = User.create( first_name: 'Arturo', last_name: 'Gonzalez', email: 'arturo92@aol.com', password: 'password', bio: 'Soup lover', street_address: '2415 San Gabriel St, Austin', zip_code: 78705, chef_avatar: "/images/chefs/arturo_chef.jpg")
+bill = User.create( first_name: 'Bill', last_name: 'Trotter', email: 'bill-trott@compuserve.com', password: 'password', bio: 'food lover', street_address: '906 W 17th St, Austin', zip_code: 78701, chef_avatar: "/images/chefs/bill_chef.jpg")
+deppika = User.create( first_name: 'Deppika', last_name: 'Chopra', email: 'deppika@hotmail.com', password: 'password', bio: 'Curry lover', street_address: '612 Nueces St, Austin', zip_code: 78701, chef_avatar: "/images/chefs/deppika_chef.jpg")
 kate = User.create( first_name: 'Kate', last_name: 'Manson', email: 'katie76@gmail.com', password: 'password', bio: 'Dessert lover', street_address: '806 W 12th St, Austin', zip_code: 78701, chef_avatar: "/images/chefs/katie_chef.jpg")
-sally = User.create( first_name: 'Sally', last_name: 'Rickman', email: 'srickman@gmail.com', password: 'password', bio: 'Veggie lover', street_address: '1105 E 6th St', zip_code: 78702, chef_avatar: "/images/chefs/sally_chef.jpg" )
-teresa = User.create( first_name: 'Teresa', last_name: 'Saucer', email: 'tsaucer81@att.com', password: 'password', bio: 'Italian sauce lover', street_address: '1101 South Congress Avenue', zip_code: 78704, chef_avatar: "/images/chefs/teresa_chef.jpg" )
+sally = User.create( first_name: 'Sally', last_name: 'Rickman', email: 'srickman@gmail.com', password: 'password', bio: 'Veggie lover', street_address: '1105 E 6th St, Austin', zip_code: 78702, chef_avatar: "/images/chefs/sally_chef.jpg" )
+teresa = User.create( first_name: 'Teresa', last_name: 'Saucer', email: 'tsaucer81@att.com', password: 'password', bio: 'Italian sauce lover', street_address: '1101 South Congress Avenue, Austin', zip_code: 78704, chef_avatar: "/images/chefs/teresa_chef.jpg" )
 
 burger = Meal.new(name: 'Bacon Burger', description: 'ground meat between bread', cuisine: 'Americana', price: 5.00, seed_image: "/images/meals/burger.jpeg" )
 
