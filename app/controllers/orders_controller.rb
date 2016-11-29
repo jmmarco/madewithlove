@@ -17,7 +17,8 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
-    @order = Order.new
+    # @order = Order.new
+    redirect_to '/'
   end
 
   # GET /orders/1/edit
