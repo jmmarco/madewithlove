@@ -38,8 +38,6 @@ gem 'hirb'
 gem 'json'
 # Add pry for debugging
 gem 'pry'
-# Add dotenv to save env variables
-gem 'dotenv'
 # Add Geocoder gem for Google Maps
 gem 'geocoder'
 # Make thor fixed
