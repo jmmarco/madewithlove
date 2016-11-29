@@ -1,46 +1,57 @@
-<h1>Adjust Your Order</h1>
+<div class="row">
+  <div class="col-md-12">
+    <h3>Adjust Your Order</h3>
+  </div>
+</div>
 
-<p>
-  <strong>Meal:</strong>
-  <%= @order.meal.name %>
-</p>
+<div class="row">
+  <div class="col-md-12">
+    <strong>Meal: </strong><%= @order.meal.name %>
+  </div>
+</div>
 
-<%= form_for(@order) do |f| %>
- <% if @order.errors.any? %>
-   <div id="error_explanation">
-     <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+<div class="row">
+  <div class="col-md-6">
+    <div class="field">
+      <%= form_for(@order) do |f| %>
+        <% if @order.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@order.errors.count, "error") %>        prohibited this order from being saved:</h2>
 
-     <ul>
-     <% @order.errors.full_messages.each do |message| %>
-       <li><%= message %></li>
-     <% end %>
-     </ul>
-   </div>
- <% end %>
+            <ul>
+            <% @order.errors.full_messages.each do |message|        %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
 
- <%= f.hidden_field :patron_id, :value => current_user.id %>
+        <%= f.hidden_field :patron_id, :value => current_user.      id %>
 
- <%= f.hidden_field :meal_id, :value => @order.meal.id %>
+        <%= f.hidden_field :meal_id, :value => @order.meal.id       %>
 
- <div class="field">
-   <%= f.label :quantity %>
-   <%= f.number_field :quantity, in: 1.0..6.0 %>
- </div>
+        <div class="form-group">
+          <%= f.label :quantity %>
+          <%= f.number_field :quantity, in: 1.0..6.0, class: "form-control" %>
+        </div>
 
- <div class="field">
-   <%= f.label :destination_address %>
-   <%= f.text_field :destination_address %>
- </div>
+        <div class="form-group">
+          <%= f.label :destination_address %>
+          <%= f.text_field :destination_address, class: "form-control" %>
+        </div>
 
- <div class="field">
-   <%= f.label :delivery_time %>
-   <%= f.datetime_select :delivery_time %>
- </div>
+        <div class="form-group">
+          <%= f.label :delivery_time %>
+          <%= f.datetime_select :delivery_time, class: "form-control" %>
+        </div>
 
- <div class="actions">
-   <%= f.submit %>
- </div>
-<% end %>
+        <div class="form-group">
+          <%= f.submit "Submit", class: "form-control btn btn-info" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 
 <%= link_to 'Show', @order %> |

@@ -15,10 +15,14 @@
     <% end %>
   </div>
   <% end %>
-
 </div>
-
-<%= will_paginate @meals, previous_label: "<", next_label: ">" %>
+<br>
+<br>
+<div class="row">
+  <div class="col-md-12">
+    <%= will_paginate @meals, previous_label: "<", next_label: ">" %>
+  </div>
+</div>
 
 <div class="row">
   <div class="col-md-12">
