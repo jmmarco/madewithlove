@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :reviews
   get "/meals/search" => "meals#search"
 
   get "/meals/category" => "meals#category"
