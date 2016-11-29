@@ -1,5 +1,6 @@
 class Meal < ApplicationRecord
   has_many :orders
+  has_many :favorited_meals
   belongs_to :chef, class_name: :User
 
   validates :name, :description, :cuisine, :chef_id, :price, presence: true
