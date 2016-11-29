@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161129173707) do
+ActiveRecord::Schema.define(version: 20161129215949) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "favorited_meals", id: false, force: :cascade do |t|
+  create_table "favorited_meals", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "meal_id", null: false
   end

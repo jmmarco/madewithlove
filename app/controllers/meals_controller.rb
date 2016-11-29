@@ -48,9 +48,25 @@ class MealsController < ApplicationController
   # GET /meals/1
   # GET /meals/1.json
   def show
-    # @meal = Meal.find(params[:id])
     @order = Order.new
     @order.meal = set_meal
+  end
+
+  def favorite
+    @favorite = FavoritedMeal.new
+    @favorite.user = current_user
+    @favorite.meal = set_meal
+    user_favs = current_user.favorited_meals
+    existing_fav = user_favs.find_by(meal_id: @meal.id)
+    if existing_fav
+      binding.pry
+      existing_fav.destroy
+      redirect_to "show"
+    elsif @favorite.save
+      redirect_to "show"
+    else
+      redirect_to "show"
+    end
   end
 
   # GET /meals/new
