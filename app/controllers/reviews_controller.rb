@@ -4,6 +4,7 @@ class ReviewsController < ApplicationController
   # GET /reviews
   # GET /reviews.json
   def index
+
     @reviews = Review.all
   end
 
@@ -14,6 +15,7 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/new
   def new
+    @order  = Order.find(params[:order_id])
     @review = Review.new
   end
 

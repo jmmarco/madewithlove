@@ -35,6 +35,7 @@
 <!-- add edit logic/helper... order_changes_allowed? -->
 <% if @order.delivery_time > DateTime.now %>
   <p>
+    <%= link_to 'Review', new_order_review_path(@order) %> |
     <%= link_to 'Edit', edit_order_path(@order) %> |
     <%= link_to 'Cancel', order_path(@order), method: :delete, data: { confirm: 'Are you sure you want to cancel this order?' } %>
   </p>

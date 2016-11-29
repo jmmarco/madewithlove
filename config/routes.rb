@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
 
-  resources :reviews
   get "/meals/search" => "meals#search"
 
   get "/meals/category" => "meals#category"
 
   resources :meals
-  resources :orders #, only: [:create, :show, :edit, :update]
+  resources :reviews
+  resources :orders do #, only: [:create, :show, :edit, :update]
+    resources :reviews
+  end
   resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get '/' => 'application#index', :as => :index_path
