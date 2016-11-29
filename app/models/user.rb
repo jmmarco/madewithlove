@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :sales, through: :prepared_meals, source: :orders
   has_many :supported_chef, through: :purchased_meals, source: :chef
   has_many :favorited_meals
+  has_many :reviews, through: :orders
   # has_attached_file :chef_avatar
 
   # Validations
