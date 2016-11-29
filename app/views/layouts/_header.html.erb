@@ -15,7 +15,8 @@
         </a>
       <% else %>
         <a href="/login">Login</a>
-        <a href="/register">Sign Up</a>
+        <a href="/register" type="button" class="" data-toggle="modal" data-target="#sign-up">Sign Up</a>
+
       <% end %>
     </div>
 
@@ -27,3 +28,30 @@
     <% end %>
   </div>
 </nav>
+<!-- Modal -->
+<div class="modal fade" id="sign-up" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Sign up</h4>
+      </div>
+      <div class="modal-body text-center">
+        <a type="button" class="btn btn-default btn-block btn-lg" href="">
+          <i class="fa fa-google pull-left"></i>Continue with Google
+        </a>
+        <a type="button" class="btn btn-default btn-block btn-lg fb" href="">
+          <i class="fa fa-facebook pull-left"></i>Continue with Facebook
+        </a>
+        or
+        <a type="button" class="btn btn-default btn-block btn-lg" href="">
+          <i class="fa fa-envelope-o pull-left"></i>Sign up with email
+        </a>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
