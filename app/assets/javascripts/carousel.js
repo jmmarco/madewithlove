@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() {
+$(document).ready(function() {
   $('.main-gallery').flickity({
     // options
     cellAlign: 'left',
