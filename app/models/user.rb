@@ -18,4 +18,16 @@ class User < ApplicationRecord
 
   geocoded_by :street_address
   after_validation :geocode
+
+
+  # Add BCrypt stuff
+  def password
+    @password ||= BCrypt::Password.new(password_hash)
+  end
+
+  def password=(new_password)
+    @password = BCrypt::Password.create(new_password)
+    self.password_hash = @password
+  end
+
 end
