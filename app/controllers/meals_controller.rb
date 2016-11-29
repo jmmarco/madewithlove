@@ -50,23 +50,23 @@ class MealsController < ApplicationController
   def show
     @order = Order.new
     @order.meal = set_meal
+    user_favs = current_user.favorited_meals
+    @existing_fav = user_favs.find_by(meal_id: @meal.id)
   end
 
   def favorite
+    @meal = set_meal
     @favorite = FavoritedMeal.new
-    @favorite.user = current_user
-    @favorite.meal = set_meal
     user_favs = current_user.favorited_meals
     existing_fav = user_favs.find_by(meal_id: @meal.id)
     if existing_fav
-      binding.pry
       existing_fav.destroy
-      redirect_to "show"
-    elsif @favorite.save
-      redirect_to "show"
     else
-      redirect_to "show"
+      @favorite.user = current_user
+      @favorite.meal = @meal
+      @favorite.save
     end
+    redirect_to meal_path(@meal)
   end
 
   # GET /meals/new

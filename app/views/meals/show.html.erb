@@ -14,12 +14,7 @@
         <div class="col-md-12">
           <p id="notice"><%= notice %></p>
           <%= render :partial => "meal" %>
-          <% if current_user %>
-            <form action="/meals/<%=@meal.id%>/favorite" method="get">
-              <button name="fav-button" type="submit">Favorite</button>
-            </form>
-            <a href="/meals/<%=@meal.id%>/favorite"><span class="glyphicon glyphicon-heart"></span> madewithlove</a>
-          <% end %>
+          <%= render :partial => "heart" %>
           <% if current_user %>
             <hr>
             <%= render :partial => "/orders/form", :locals => { :order => @order, :meal => @meal } %>
