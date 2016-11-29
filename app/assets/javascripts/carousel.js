@@ -5,9 +5,9 @@ $(document).on('turbolinks:load', function() {
     contain: true,
     wrapAround: true,
     freeScroll: true,
-    autoPlay: 1500,
+    autoPlay: true,
     pageDots: false,
-    pauseAutoPlayOnHover: false,
+    pauseAutoPlayOnHover: true,
     selectedAttraction: 0.0001,
     friction: 1.5,
     prevNextButtons: false
