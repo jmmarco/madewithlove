@@ -5,10 +5,11 @@ Rails.application.routes.draw do
   get "/meals/category" => "meals#category"
 
   resources :meals
-  resources :reviews
-  resources :orders do #, only: [:create, :show, :edit, :update]
-    resources :reviews
+
+  resources :orders do
+    resources :reviews, except: [:update, :destroy]
   end
+  resources :reviews
   resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get '/' => 'home#index', as: :index
