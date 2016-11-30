@@ -11,6 +11,7 @@
         <% @meals.each do |meal| %>
           <div class="col-md-4 single-meal">
             <%= render :partial => "meal", :locals => { :layout => false , :@meal => meal } %>
+            <%= render :partial => "heart" %>
             <% if @meal.seed_image %>
               <img class="img-responsive" src="<%= @meal.seed_image %>" alt="Meal Picture">
             <% else %>

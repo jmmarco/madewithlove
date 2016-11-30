@@ -42,6 +42,9 @@ class MealsController < ApplicationController
   # GET /meals
   # GET /meals.json
   def index
+    @meal = set_meal
+    user_favs = current_user.favorited_meals
+    existing_fav = user_favs.find_by(meal_id: @meal.id)
     @meals = Meal.all.paginate(:page => params[:page], :per_page => 3)
   end
 
@@ -66,7 +69,15 @@ class MealsController < ApplicationController
       @favorite.meal = @meal
       @favorite.save
     end
-    redirect_to meal_path(@meal)
+    if request.xhr?
+      200
+    end
+    # if request.headers["HTTP_REFERER"][21..35] == "/meals/category"
+    #   redirect_to request.headers["HTTP_REFERER"]
+    # elsif request.headers["HTTP_REFERER"][21..35] == "/meals/category"
+    # elsif request.headers["HTTP_REFERER"][21..27] == "/meals/"
+    # end
+    # redirect_to meal_path(@meal)
   end
 
   # GET /meals/new
