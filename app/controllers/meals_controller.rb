@@ -67,7 +67,6 @@ class MealsController < ApplicationController
     @meal = set_meal
     user_favs = current_user.favorited_meals
     existing_fav = user_favs.find_by(meal_id: @meal.id)
-
     if existing_fav
       existing_fav.destroy
     else
@@ -78,8 +77,10 @@ class MealsController < ApplicationController
     end
     if request.xhr?
       200
+    else
+      binding.pry
+      redirect_to :back
     end
-    redirect_to :back
   end
 
   # GET /meals/new

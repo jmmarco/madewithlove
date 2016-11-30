@@ -1,32 +1,34 @@
-<p>
-  <strong>Name:</strong>
-  <%= meal.name %>
-</p>
+<div id="/meals/<%=meal.id%>" >
+  <p>
+    <strong>Name:</strong>
+    <%= meal.name %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= meal.description %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= meal.description %>
+  </p>
 
-<p>
-  <strong>Cuisine:</strong>
-  <%= meal.cuisine %>
-</p>
+  <p>
+    <strong>Cuisine:</strong>
+    <%= meal.cuisine %>
+  </p>
 
-<p>
-  <strong>Chef:</strong>
-  <%= link_to meal.chef.first_name, user_path(meal.chef) %>
-</p>
+  <p>
+    <strong>Chef:</strong>
+    <%= link_to meal.chef.first_name, user_path(meal.chef) %>
+  </p>
 
-<p>
-  <strong>Price:</strong>
-  <%= number_to_currency meal.price %>
-</p>
-<% if current_user %>
-  <%= render :partial => "heart", locals: { existing_fav: current_user.has_favorited_meal?(meal), meal:meal }  %>
-<% end %>
-<% if meal.chef == current_user %> |
-  <%= link_to 'Edit', edit_meal_path(meal) %> |
-  <%= link_to 'Destroy', meal, method: :delete, data: { confirm: 'Are you sure?' } %>
-<% end %>
-<br>
+  <p>
+    <strong>Price:</strong>
+    <%= number_to_currency meal.price %>
+  </p>
+  <% if current_user %>
+    <%= render :partial => "heart", locals: { existing_fav:   current_user.has_favorited_meal?(meal), meal:meal }  %>
+  <% end %>
+  <% if meal.chef == current_user %> |
+    <%= link_to 'Edit', edit_meal_path(meal) %> |
+    <%= link_to 'Destroy', meal, method: :delete, data: {   confirm: 'Are you sure?' } %>
+  <% end %>
+  <br>
+</div>
