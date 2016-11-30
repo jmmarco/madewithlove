@@ -1,5 +1,19 @@
-<h3>New Review</h3>
+<div class="container">
+  <div class="col-md-12">
+      <h3>New Review</h3>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
 
-<%= render 'form', review: @review %>
+    <div class="panel panel-default">
+      <div class="panel-body">
 
-<%= link_to 'Back', order_reviews_path %>
+      <%= render 'form', review: @review %>
+
+      <%= link_to 'Back', order_reviews_path %>
+
+      </div>
+    </div>
+  </div>
+</div>

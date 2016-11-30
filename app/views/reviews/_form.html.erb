@@ -22,7 +22,9 @@
         <%= f.text_area :comment, class: "form-control" %>
       </div>
 
-      <%= f.hidden_field :order_id, :value => @order.id %>
+      <% if @order %>
+        <%= f.hidden_field :order_id, :value => @order.id %>
+      <% end %>
 
       <div class="form-group">
         <%= f.label :rating %>

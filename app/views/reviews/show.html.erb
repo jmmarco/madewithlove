@@ -1,19 +1,37 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="col-md-12">
+      <h3>Review Details:</h3>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-body">
+      <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Comment:</strong>
-  <%= @review.comment %>
-</p>
+      <p>
+        <strong>Comment:</strong>
+        <%= @review.comment %>
+      </p>
 
-<p>
-  <strong>Rating:</strong>
-  <%= @review.rating %>
-</p>
+      <p>
+        <strong>Rating:</strong>
+        <%= @review.rating %>
+      </p>
 
-<p>
-  <strong>Order:</strong>
-  <%= @review.order_id %>
-</p>
+      <p>
+        <strong>Order:</strong>
+        <%= @review.order.meal.name %>
+      </p>
 
-<%= link_to 'Edit', edit_review_path(@review) %> |
-<%= link_to 'Back', reviews_path %>
+      <p>
+        <strong>Chef:</strong>
+        <%= @review.order.meal.chef.first_name %>
+      </p>
+
+      <%= link_to 'Edit', edit_review_path(@review) %> |
+      <%= link_to 'Back', reviews_path %>
+      </div>
+    </div>
+  </div>
+</div>

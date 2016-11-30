@@ -1,11 +1,18 @@
-<h3>New Meal</h3>
-
-<%= render 'form', meal: @meal %>
-
-
-<div class="row">
+<div class="container">
   <div class="col-md-12">
-    <%= link_to 'Back', meals_path %>
+      <h3>New Meal</h3>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-body">
+
+      <%= render 'form', meal: @meal %>
+
+      </div>
+      <%= link_to 'Back', meals_path %>
+    </div>
   </div>
 </div>
 
