@@ -1,5 +1,5 @@
 <% if current_user && existing_fav %>
-  <a href="/meals/<%=meal.id%>/favorite"><span class="glyphicon glyphicon-heart glyphicon-heart-enabled"></span></a>
+  <a href="/meals/<%=meal.id%>/favorite"><i class="glyphicon glyphicon-heart glyphicon-heart-enabled"></i></a>
 <% elsif current_user %>
-  <a href="/meals/<%=meal.id%>/favorite"><span class="glyphicon glyphicon-heart glyphicon-heart-disabled"></span></a>
+  <a href="/meals/<%=meal.id%>/favorite"><i class="glyphicon glyphicon-heart glyphicon-heart-disabled"></i></a>
 <% end %>
