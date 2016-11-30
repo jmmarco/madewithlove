@@ -24,4 +24,11 @@ class Meal < ApplicationRecord
     results.flatten
   end
 
+  def existing_fav
+    user_favs = current_user.favorited_meals
+    if user_favs.find_by(meal_id: @meal.id).exists?
+      return user_favs.find_by(meal_id: @meal.id)
+    end
+  end
+
 end

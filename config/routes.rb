@@ -26,6 +26,6 @@ Rails.application.routes.draw do
 
   get "/users/:id" => "users#show"
 
-
+  get "/meals/:id/favorite" => "meals#favorite"
 
 end
