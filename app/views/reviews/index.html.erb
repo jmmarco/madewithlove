@@ -1,31 +1,38 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <p id="notice"><%= notice %></p>
 
-<h1>Reviews</h1>
+      <h3>Reviews</h3>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <table>
+          <thead>
+            <tr>
+              <th>Comment</th>
+              <th>Rating</th>
+              <th>Order</th>
+              <th>Chef</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>Comment</th>
-      <th>Rating</th>
-      <th>Order</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @reviews.each do |review| %>
-      <tr>
-        <td><%= review.comment %></td>
-        <td><%= review.rating %></td>
-        <td><%= review.order_id %></td>
-        <td><%= link_to 'Show', review %></td>
-        <td><%= link_to 'Edit', edit_review_path(review) %></td>
-        <td><%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Review', new_review_path %>
+          <tbody>
+            <% @reviews.each do |review| %>
+              <tr>
+                <td><%= review.comment %></td>
+                <td><%= review.rating %></td>
+                <td><%= review.order.meal.name %></td>
+                <td><%= review.order.meal.chef.first_name %></td>
+                <td><%= link_to 'Show', review %></td>
+                <td><%= link_to 'Edit', edit_review_path(review) %></td>
+                <td><%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
