@@ -47,6 +47,14 @@ body {
     color: red;
 }
 
+.glyphicon-heart-disabled {
+    color: black;
+}
+
+.glyphicon-heart-enabled {
+    color: red;
+}
+
 a:hover {
     background-color: transparent;
 }
