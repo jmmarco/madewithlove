@@ -11,6 +11,14 @@ class MealsController < ApplicationController
       meal_hash = {}
       meal_hash[:chef_name] = meal.chef.first_name
       meal_hash[:coordinates] = meal.chef.geocode
+      meal_hash[:meal] = meal.name
+      meal_hash[:description] = meal.description
+      meal_hash[:price] = ActionController::Base.helpers.number_to_currency(meal.price)
+      if meal.seed_image
+        meal_hash[:image] = meal.seed_image
+      else
+        meal_hash[:image] = meal.image.url
+      end
       @results << meal_hash
     end
 
