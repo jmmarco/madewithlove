@@ -75,6 +75,8 @@ ActiveRecord::Schema.define(version: 20161129225036) do
     t.string   "updated_image_content_type"
     t.integer  "updated_image_file_size"
     t.datetime "updated_image_updated_at"
+    t.string   "provider"
+    t.string   "uid"
   end
 
 end

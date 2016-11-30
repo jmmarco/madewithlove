@@ -112,3 +112,7 @@ a:hover {
 .info-window img {
   width: 30%;
 }
+
+.featured-meals-gallery img {
+  height: 200px;
+}
