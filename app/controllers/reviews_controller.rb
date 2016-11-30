@@ -13,14 +13,16 @@ class ReviewsController < ApplicationController
   def show
   end
 
-  # GET /reviews/new
+  # GET /orders/:order_id/reviews/new
   def new
     @order  = Order.find(params[:order_id])
     @review = Review.new
   end
 
-  # GET /reviews/1/edit
+  # GET /orders/:order_id/reviews/:id/edit
   def edit
+    # @order  = Order.find(params[:order_id])
+    # @review = Review.find(params[:id])
   end
 
   # POST /reviews
