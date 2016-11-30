@@ -13,14 +13,12 @@
       <div class="row">
         <div class="col-md-12">
           <p id="notice"><%= notice %></p>
-          <%= render :partial => "meal" %>
-          <%= render :partial => "heart" %>
+          <%= render :partial => "meal", locals: { meal: @meal} %>
           <% if current_user %>
             <hr>
             <%= render :partial => "/orders/form", :locals => { :order => @order, :meal => @meal } %>
           <% end %>
-
-          <%= link_to 'Back', meals_path %>
+          <%= link_to 'Back', url_for(:back) %>
         </div>
       </div>
     </div>

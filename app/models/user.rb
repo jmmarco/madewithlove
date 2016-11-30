@@ -18,4 +18,8 @@ class User < ApplicationRecord
 
   geocoded_by :street_address
   after_validation :geocode
+
+  def has_favorited_meal?(meal)
+    !favorited_meals.find_by(meal_id: meal.id).nil?
+  end
 end

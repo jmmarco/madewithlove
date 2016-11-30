@@ -1,5 +1,6 @@
 class MealsController < ApplicationController
   include ApplicationHelper
+  include MealsHelper
   before_action :set_meal, only: [:show, :edit, :update, :destroy]
 
   def search
@@ -42,9 +43,6 @@ class MealsController < ApplicationController
   # GET /meals
   # GET /meals.json
   def index
-    @meal = set_meal
-    user_favs = current_user.favorited_meals
-    existing_fav = user_favs.find_by(meal_id: @meal.id)
     @meals = Meal.all.paginate(:page => params[:page], :per_page => 3)
   end
 
@@ -59,25 +57,21 @@ class MealsController < ApplicationController
 
   def favorite
     @meal = set_meal
-    @favorite = FavoritedMeal.new
     user_favs = current_user.favorited_meals
     existing_fav = user_favs.find_by(meal_id: @meal.id)
+
     if existing_fav
       existing_fav.destroy
     else
-      @favorite.user = current_user
-      @favorite.meal = @meal
-      @favorite.save
+      favorite = FavoritedMeal.new
+      favorite.user = current_user
+      favorite.meal = @meal
+      favorite.save
     end
     if request.xhr?
       200
     end
-    # if request.headers["HTTP_REFERER"][21..35] == "/meals/category"
-    #   redirect_to request.headers["HTTP_REFERER"]
-    # elsif request.headers["HTTP_REFERER"][21..35] == "/meals/category"
-    # elsif request.headers["HTTP_REFERER"][21..27] == "/meals/"
-    # end
-    # redirect_to meal_path(@meal)
+    redirect_to :back
   end
 
   # GET /meals/new
@@ -140,4 +134,5 @@ class MealsController < ApplicationController
     def meal_params
       params.require(:meal).permit(:name, :description, :cuisine, :chef_id, :price, :image)
     end
+
 end

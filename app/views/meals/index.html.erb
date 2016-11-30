@@ -8,9 +8,9 @@
     <p id="notice"><%= notice %></p>
     <% @meals.each do |meal| %>
     <div class="col-md-3 single-meal">
-      <%= render :partial => "meal", :locals => { :layout => false , :@meal => meal } %>
-      <% if @meal.seed_image %>
-        <img class="img-responsive" src="<%= @meal.seed_image %>" alt="Meal Picture">
+      <%= render :partial => "meal", :locals => { :layout => false , :meal => meal } %>
+      <% if meal.seed_image %>
+        <img class="img-responsive" src="<%= meal.seed_image %>" alt="Meal Picture">
       <% else %>
         <%= image_tag meal.image.url(:medium) %>
       <% end %>
