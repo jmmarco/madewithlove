@@ -78,7 +78,6 @@ class MealsController < ApplicationController
     if request.xhr?
       200
     else
-      binding.pry
       redirect_to :back
     end
   end
