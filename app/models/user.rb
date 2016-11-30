@@ -32,3 +32,4 @@ class User < ApplicationRecord
     @password = BCrypt::Password.create(new_password)
     self.password_hash = @password
   end
+end
