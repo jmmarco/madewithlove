@@ -59,8 +59,10 @@ class MealsController < ApplicationController
   def show
     @order = Order.new
     @order.meal = set_meal
-    user_favs = current_user.favorited_meals
-    @existing_fav = user_favs.find_by(meal_id: @meal.id)
+    if current_user
+      user_favs = current_user.favorited_meals
+      @existing_fav = user_favs.find_by(meal_id: @meal.id)
+    end
   end
 
   def favorite
