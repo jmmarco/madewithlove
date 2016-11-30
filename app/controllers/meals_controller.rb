@@ -1,5 +1,6 @@
 class MealsController < ApplicationController
   include ApplicationHelper
+  include MealsHelper
   before_action :set_meal, only: [:show, :edit, :update, :destroy]
 
   def search
@@ -56,9 +57,29 @@ class MealsController < ApplicationController
   # GET /meals/1
   # GET /meals/1.json
   def show
-    # @meal = Meal.find(params[:id])
     @order = Order.new
     @order.meal = set_meal
+    user_favs = current_user.favorited_meals
+    @existing_fav = user_favs.find_by(meal_id: @meal.id)
+  end
+
+  def favorite
+    @meal = set_meal
+    user_favs = current_user.favorited_meals
+    existing_fav = user_favs.find_by(meal_id: @meal.id)
+
+    if existing_fav
+      existing_fav.destroy
+    else
+      favorite = FavoritedMeal.new
+      favorite.user = current_user
+      favorite.meal = @meal
+      favorite.save
+    end
+    if request.xhr?
+      200
+    end
+    redirect_to :back
   end
 
   # GET /meals/new
@@ -121,4 +142,5 @@ class MealsController < ApplicationController
     def meal_params
       params.require(:meal).permit(:name, :description, :cuisine, :chef_id, :price, :image)
     end
+
 end
