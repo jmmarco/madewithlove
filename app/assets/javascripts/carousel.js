@@ -8,4 +8,11 @@ $(document).on('turbolinks:load', function() {
     pauseAutoPlayOnHover: true,
 
   });
+
+
+  $('.featured-meals-gallery').flickity({
+    wrapAround: true,
+    autoPlay: false,
+  });
+
 });
