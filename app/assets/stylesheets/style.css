@@ -102,6 +102,13 @@ a:hover {
 }
 
 .main-gallery img {
-  display: block;
   height: 400px;
+}
+
+.carousel {
+  height: 400px;
+}
+
+.info-window img {
+  width: 30%;
 }

@@ -4,18 +4,20 @@
     <div class="navbar-text navbar-right">
       <% if current_user %>
         <a data-toggle="popover" id="profile" href="/users/<%= current_user.id %>" class="navbar-link">
-          <img class="navbar-avatar pull-right"
+          <!-- <img  -->
             <% if current_user.updated_image_file_name %>
-              <%= image_tag current_user.updated_image.url(:large) %>
+              <%= image_tag current_user.updated_image.url(:large), class:"navbar-avatar pull-right" %>
             <% elsif current_user.chef_avatar %>
-              src="<%= current_user.chef_avatar %>"
+              <%= image_tag current_user.chef_avatar,class:"navbar-avatar pull-right" %>
+              <!-- src="<%= current_user.chef_avatar %>" -->
             <% else %>
-             src="<%= current_user.avatar %>"
+            <%= image_tag current_user.avatar, class:"navbar-avatar pull-right" %>
+             <!-- src="<%= current_user.avatar %>" -->
             <% end %>
-        </a>
+        <!-- </a> -->
       <% else %>
-        <a href="/login">Login</a>
-        <a href="/register" type="button" class="" data-toggle="modal" data-target="#sign-up">Sign Up</a>
+        <a href="/login" class="" data-toggle="modal" data-target="#login">Login</a>
+        <a href="/register" class="" data-toggle="modal" data-target="#sign-up">Sign Up</a>
       <% end %>
     </div>
 
@@ -27,30 +29,7 @@
     <% end %>
   </div>
 </nav>
-<!-- Modal -->
-<div class="modal fade" id="sign-up" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Sign up</h4>
-      </div>
-      <div class="modal-body text-center">
-        <a type="button" class="btn btn-default btn-block btn-lg" href="">
-          <i class="fa fa-google pull-left"></i>Continue with Google
-        </a>
-        <a type="button" class="btn btn-default btn-block btn-lg fb" href="">
-          <i class="fa fa-facebook pull-left"></i>Continue with Facebook
-        </a>
-        or
-        <a type="button" class="btn btn-default btn-block btn-lg" href="">
-          <i class="fa fa-envelope-o pull-left"></i>Sign up with email
-        </a>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
+
+<!-- Render the modals -->
+<%= render 'layouts/modals/login' %>
+<%= render 'layouts/modals/signup' %>

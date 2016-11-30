@@ -22,4 +22,13 @@ class User < ApplicationRecord
   def has_favorited_meal?(meal)
     !favorited_meals.find_by(meal_id: meal.id).nil?
   end
-end
+
+  # Add BCrypt stuff
+  def password
+    @password ||= BCrypt::Password.new(password_hash)
+  end
+
+  def password=(new_password)
+    @password = BCrypt::Password.create(new_password)
+    self.password_hash = @password
+  end
