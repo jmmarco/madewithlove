@@ -24,10 +24,11 @@
               <% if current_user.updated_image_file_name %>
                 <%= image_tag current_user.updated_image.url(:medium) %>
               <% elsif current_user.chef_avatar %>
-                <img class="img-responsive avatar" src="<%= current_user.chef_avatar %>" alt="Profile Picture">
+                <%= image_tag current_user.chef_avatar, class:"img-responsive avatar" %>
               <% else %>
-                <img class="img-responsive avatar" src="<%= current_user.avatar %>" alt="Profile Picture">
+                <%= image_tag current_user.avatar, class:"img-responsive avatar" %>
               <% end %>
+
               <div class="form-group">
                 <%= f.label :change_profile_image %>
                 <%= f.file_field :updated_image %>
