@@ -22,7 +22,9 @@
           <p>Member since: <%= Time.at(@user.created_at).strftime("%B %e, %Y") %></p>
           <p>Member bio: <%= @user.bio %>
           <br>
-          <p><%= link_to 'New Meal', new_meal_path, class: "form-control btn btn-info" %>
+          <% if current_user && @user.id == current_user.id %>
+            <p><%= link_to 'New Meal', new_meal_path, class: "form-control btn btn-info" %>
+          <% end %>
         </div>
         <% if current_user && @user.id == current_user.id %>
           <div class="col-md-3 col-md-offset-6">
