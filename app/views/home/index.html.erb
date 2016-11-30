@@ -45,6 +45,21 @@
     <div class="col-md-12">
       <h3>Featured Meals</h3>
       <!-- Perhaps add featured meals here -->
+      <div class="featured-meals-gallery">
+
+        <% @featured_meals.each do |meal| %>
+          <% if meal.seed_image %>
+            <div class="gallery-cell">
+              <a href="/meals/<%= meal.id %>"><img src="<%= meal.seed_image %>" alt="Meal Picture"></a>
+            </div>
+          <% else %>
+            <div class="gallery-cell">
+              <a href="/meals/<%= meal.id %>"><%= image_tag meal.image.url(:medium) %></a>
+            </div>
+          <% end %>
+        <% end %>
+
+      </div>
     </div>
   </div>
 </div>
