@@ -26,15 +26,6 @@
             <p><%= link_to 'New Meal', new_meal_path, class: "form-control btn btn-info" %>
           <% end %>
         </div>
-        <% if current_user && @user.id == current_user.id %>
-          <div class="col-md-3 col-md-offset-6">
-            <h4>Order history</h4>
-            <% @user.orders.each do |order| %>
-              <%= render :partial => "/orders/order", :locals => { :@order => order } %>
-              <hr>
-            <% end %>
-          </div>
-        <% end %>
       </div>
 
       <div class = "row">
@@ -59,6 +50,16 @@
               <hr>
             <% end %>
           </div>
+
+        <% if current_user && @user.id == current_user.id %>
+          <div class="col-md-3 col-md-offset-6">
+            <h4>Order history</h4>
+            <% @user.orders.each do |order| %>
+              <%= render :partial => "/orders/order", :locals => { :@order => order } %>
+              <hr>
+            <% end %>
+          </div>
+        <% end %>
 
           <% if @user_favs.length > 0 %>
           <div class="row">
