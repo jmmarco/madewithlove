@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161130054324) do
+ActiveRecord::Schema.define(version: 20161129225036) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,8 +74,6 @@ ActiveRecord::Schema.define(version: 20161130054324) do
     t.string   "updated_image_content_type"
     t.integer  "updated_image_file_size"
     t.datetime "updated_image_updated_at"
-    t.string   "provider"
-    t.string   "uid"
   end
 
 end
