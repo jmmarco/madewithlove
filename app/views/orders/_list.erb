@@ -1,5 +1,5 @@
 <h4>Sales</h4>
-<table>
+<table class="table">
 <tr>
   <th>Client</th>
   <th>Menu Item</th>
@@ -8,6 +8,8 @@
   <th>Address</th>
   <th>Total Price</th>
   <th>Order Status</th>
+  <th>Update Status</th>
+  <th></th>
 </tr>
 <% sales.each do |order| %>
   <tr>
@@ -18,6 +20,10 @@
     <td><%= order.destination_address %></td>
     <td><%= number_to_currency order.total_price %></td>
     <td><%= order.status %></td>
+    <%= form_for(order) do |f| %>
+      <td><%= f.select :status, ["PENDING", "OUT FOR DELIVERY", "DELIVERED" ]%></td>
+      <td><%= f.submit "Update", class: "form-control btn btn-info" %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>

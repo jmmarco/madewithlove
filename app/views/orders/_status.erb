@@ -1,0 +1,4 @@
+<%= form_for(order) do |f| %>
+  <%= f.select :status, ["PENDING", "OUT FOR DELIVERY", "DELIVERED" ]%>
+  <%= f.submit "Update", class: "form-control btn btn-info" %>
+<% end %>
