@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
+    @user_favs = []
+    @user.favorited_meals.each do |fav|
+      @user_favs.push(Meal.find(fav.meal_id))
+    end
   end
 
   def new
