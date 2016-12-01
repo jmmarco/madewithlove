@@ -12,6 +12,8 @@ deppika = User.create( first_name: 'Deppika', last_name: 'Chopra', email: 'deppi
 kate = User.create( first_name: 'Kate', last_name: 'Manson', email: 'katie76@gmail.com', password: 'password', bio: 'Dessert lover', street_address: '806 W 12th St, Austin', zip_code: 78701, chef_avatar: "/images/chefs/katie_chef.jpg")
 sally = User.create( first_name: 'Sally', last_name: 'Rickman', email: 'srickman@gmail.com', password: 'password', bio: 'Veggie lover', street_address: '1105 E 6th St, Austin', zip_code: 78702, chef_avatar: "/images/chefs/sally_chef.jpg" )
 teresa = User.create( first_name: 'Teresa', last_name: 'Saucer', email: 'tsaucer81@att.com', password: 'password', bio: 'Italian sauce lover', street_address: '1101 South Congress Avenue, Austin', zip_code: 78704, chef_avatar: "/images/chefs/teresa_chef.jpg" )
+chuck = User.create( first_name: 'Chuck', last_name: 'Miller', email: 'chuck-iller@gmail.com', password: 'password', bio: 'Love to cook', street_address: '606 West 17th Street, Austin', zip_code: 78701, chef_avatar: "/images/chefs/chuck_chef.jpg" )
+rose = User.create( first_name: 'Rose', last_name: 'Flowers', email: 'rose@gmail.com', password: 'password', bio: 'Best of the best', street_address: '1704 East 21st Street, Austin', zip_code: 78722, chef_avatar: "/images/chefs/rose_chef.jpg" )
 
 burger = Meal.new(name: 'Bacon Burger', description: 'ground meat between bread', cuisine: 'Americana', price: 5.00, seed_image: "/images/meals/burger.jpeg" )
 
@@ -182,3 +184,155 @@ sally_order.total_price = sally_order.meal.price * sally_order.quantity
 sally_order.destination_address = sally.street_address
 sally_order.delivery_time = DateTime.new(2016,11,26,16,00,00, "-06:00")
 sally_order.save
+
+
+teriyaki = Meal.new(name: 'Teriyaki Salmon', description: 'Perfectly cooked teriyaki salmon', cuisine: 'Thai', price: 10.00, seed_image: "/images/meals/salmon-teriyaki.jpg" )
+
+teriyaki.chef = rose
+teriyaki.save
+
+chuck_order = Order.new
+chuck_order.meal = teriyaki
+chuck_order.patron_id = chuck.id
+chuck_order.quantity = 2
+chuck_order.total_price = chuck_order.meal.price * chuck_order.quantity
+chuck_order.destination_address = chuck.street_address
+chuck_order.delivery_time = DateTime.new(2016,12,4,16,00,00, "-06:00")
+chuck_order.save
+
+
+garlic_pizza = Meal.new(name: 'Pizza with garlic', description: 'Pizza smothered in garlic', cuisine: 'Italian', price: 10.00, seed_image: "/images/meals/garlic-pizza.jpeg" )
+
+garlic_pizza.chef = chuck
+garlic_pizza.save
+
+rose_order = Order.new
+rose_order.meal = garlic_pizza
+rose_order.patron_id = rose.id
+rose_order.quantity = 2
+rose_order.total_price = rose_order.meal.price * rose_order.quantity
+rose_order.destination_address = rose.street_address
+rose_order.delivery_time = DateTime.new(2016,12,4,16,00,00, "-06:00")
+rose_order.save
+
+
+italian_burger = Meal.new(name: 'Italian burger', description: 'Burger with basil on top', cuisine: 'Italian', price: 9.00, seed_image: "/images/meals/hamburger-italian.jpeg" )
+
+italian_burger.chef = rose
+italian_burger.save
+
+chuck_order = Order.new
+chuck_order.meal = italian_burger
+chuck_order.patron_id = chuck.id
+chuck_order.quantity = 2
+chuck_order.total_price = chuck_order.meal.price * chuck_order.quantity
+chuck_order.destination_address = chuck.street_address
+chuck_order.delivery_time = DateTime.new(2016,12,4,16,00,00, "-06:00")
+chuck_order.save
+
+
+
+kimchi = Meal.new(name: 'Kimchi fried rice', description: 'Fried rice made with kimchi and egg on top', cuisine: 'Korean', price: 9.00, seed_image: "/images/meals/kimchi-fried-rice.jpeg" )
+
+kimchi.chef = arturo
+kimchi.save
+
+bill_order = Order.new
+bill_order.meal = kimchi
+bill_order.patron_id = bill.id
+bill_order.quantity = 2
+bill_order.total_price = bill_order.meal.price * bill_order.quantity
+bill_order.destination_address = bill.street_address
+bill_order.delivery_time = DateTime.new(2016,12,4,16,00,00, "-06:00")
+bill_order.save
+
+
+skewers = Meal.new(name: 'Meat and vegetable skewers', description: 'Skewers of meat and vegetables', cuisine: 'Americana', price: 9.00, seed_image: "/images/meals/meat-vegetables-skewers.jpeg" )
+
+skewers.chef = arturo
+skewers.save
+
+bill_order = Order.new
+bill_order.meal = skewers
+bill_order.patron_id = bill.id
+bill_order.quantity = 2
+bill_order.total_price = bill_order.meal.price * bill_order.quantity
+bill_order.destination_address = bill.street_address
+bill_order.delivery_time = DateTime.new(2016,12,4,16,00,00, "-06:00")
+bill_order.save
+
+
+cake = Meal.new(name: 'Mixed cheese cake', description: 'Variety of cheese cakes', cuisine: 'Americana', price: 9.00, seed_image: "/images/meals/mixed-cheese-cake.jpeg" )
+
+cake.chef = bill
+cake.save
+
+arturo_order = Order.new
+arturo_order.meal = cake
+arturo_order.patron_id = arturo.id
+arturo_order.quantity = 2
+arturo_order.total_price = arturo_order.meal.price * arturo_order.quantity
+arturo_order.destination_address = arturo.street_address
+arturo_order.delivery_time = DateTime.new(2016,12,4,16,00,00, "-06:00")
+arturo_order.save
+
+
+tenderloin = Meal.new(name: 'Pork tenderloin', description: 'Pork tenderloin in sauce', cuisine: 'Italian', price: 12.00, seed_image: "/images/meals/pig-fillet-pork-tenderloin.jpg" )
+
+tenderloin.chef = chuck
+tenderloin.save
+
+deppika_order = Order.new
+deppika_order.meal = tenderloin
+deppika_order.patron_id = deppika.id
+deppika_order.quantity = 2
+deppika_order.total_price = deppika_order.meal.price * deppika_order.quantity
+deppika_order.destination_address = deppika.street_address
+deppika_order.delivery_time = DateTime.new(2016,12,4,16,00,00, "-06:00")
+deppika_order.save
+
+
+pulled_pork = Meal.new(name: 'Pulled pork sandwich', description: 'Pulled pork in between bun', cuisine: 'Americana', price: 6.00, seed_image: "/images/meals/pulled-pork-sandwich.jpg" )
+
+pulled_pork.chef = deppika
+pulled_pork.save
+
+chuck_order = Order.new
+chuck_order.meal = pulled_pork
+chuck_order.patron_id = chuck.id
+chuck_order.quantity = 2
+chuck_order.total_price = chuck_order.meal.price * chuck_order.quantity
+chuck_order.destination_address = chuck.street_address
+chuck_order.delivery_time = DateTime.new(2016,12,4,16,00,00, "-06:00")
+chuck_order.save
+
+
+salad_healthy = Meal.new(name: 'Healthy salad', description: 'Healthy salad with pomegranate', cuisine: 'Americana', price: 6.00, seed_image: "/images/meals/salad-healthy.jpg" )
+
+salad_healthy.chef = kate
+salad_healthy.save
+
+rose_order = Order.new
+rose_order.meal = salad_healthy
+rose_order.patron_id = rose.id
+rose_order.quantity = 2
+rose_order.total_price = rose_order.meal.price * rose_order.quantity
+rose_order.destination_address = rose.street_address
+rose_order.delivery_time = DateTime.new(2016,12,4,16,00,00, "-06:00")
+rose_order.save
+
+
+veg_salad = Meal.new(name: 'Veggie Salad Bowl', description: 'Healthy salad nuts', cuisine: 'Americana', price: 6.00, seed_image: "/images/meals/vegetable-salad-bowl.jpg" )
+
+veg_salad.chef = kate
+veg_salad.save
+
+rose_order = Order.new
+rose_order.meal = veg_salad
+rose_order.patron_id = rose.id
+rose_order.quantity = 2
+rose_order.total_price = rose_order.meal.price * rose_order.quantity
+rose_order.destination_address = rose.street_address
+rose_order.delivery_time = DateTime.new(2016,12,4,16,00,00, "-06:00")
+rose_order.save
+
