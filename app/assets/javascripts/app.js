@@ -27,20 +27,20 @@ $(document).ready(function() {
   //   initialize();
   // });
   $(document).on('mouseenter', '.single-meal', function(e) {
-    console.log("fired")
+    console.log("fired");
     var $t = $(this);
-    var marker = markers_obj[$t.data('meal-id')]
+    var marker = markers_obj[$t.data('meal-id')];
     console.log(marker);
-    marker.setAnimation(google.maps.Animation.BOUNCE)
-  })
+    marker.setAnimation(google.maps.Animation.BOUNCE);
+  });
 
   $(document).on('mouseleave', '.single-meal', function(e) {
-    console.log("firing")
+    console.log("firing");
     var $t = $(this);
-    var marker = markers_obj[$t.data('meal-id')]
+    var marker = markers_obj[$t.data('meal-id')];
     console.log(marker);
-    marker.setAnimation(null)
-  })
+    marker.setAnimation(null);
+  });
 
 });
 

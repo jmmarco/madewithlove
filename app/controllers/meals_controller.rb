@@ -8,7 +8,7 @@ class MealsController < ApplicationController
     @query = params[:query]
 
     @results = meal_mapper(@meals)
-
+    # binding.pry
     if request.xhr?
       print results
       render json: results
@@ -20,11 +20,12 @@ class MealsController < ApplicationController
     @query = params[:category]
 
     @results = meal_mapper(@meals)
-
+    # binding.pry
     if request.xhr?
       print results
       render json: results
     end
+
     render "search"
   end
 
