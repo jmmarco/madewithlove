@@ -137,3 +137,7 @@ a:hover {
   font-size: 3em;
   font-family: 'Bungee', cursive;
 }
+
+.search {
+  margin-top: 50px;
+}

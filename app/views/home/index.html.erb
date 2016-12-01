@@ -13,18 +13,10 @@
   </div>
 </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <h2>Welcome</h2>
-      <%= link_to 'View all meals', meals_path %>
-    </div>
-  </div>
-</div>
 
-<div class="container">
+<div class="container search">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-6 col-md-offset-4">
       <%= form_tag "/meals/search", method: "get", class: 'form-inline' do %>
         <div class="form-group form-group-lg">
           <%= label_tag(:query, "Search for meals:", class: "sr-only") %>
