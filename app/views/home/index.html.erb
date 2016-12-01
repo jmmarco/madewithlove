@@ -1,30 +1,18 @@
-<div class="main-gallery">
-  <div class="gallery-cell">
-     <img class="" src="images/cooking_1.jpg" alt="cooking">
-  </div>
-  <div class="gallery-cell">
-     <img class="" src="images/cooking_2.jpg" alt="cooking">
-  </div>
-  <div class="gallery-cell">
-     <img class="" src="images/cooking_3.jpg" alt="cooking">
-  </div>
-  <div class="gallery-cell">
-     <img class="" src="images/cooking_4.jpg" alt="cooking">
-  </div>
-</div>
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <h2>Welcome</h2>
-      <%= link_to 'View all meals', meals_path %>
+<div class="carousel">
+  <div class="carousel-cell">
+    <div class="hero-box">
+      <h1 id="hero">Homemade meals<br>
+        made for you!
+      </h1>
     </div>
+    <img id="image" class="img-responsive" alt="cooking">
   </div>
 </div>
 
-<div class="container">
+
+<div class="container search">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-6 col-md-offset-4">
       <%= form_tag "/meals/search", method: "get", class: 'form-inline' do %>
         <div class="form-group form-group-lg">
           <%= label_tag(:query, "Search for meals:", class: "sr-only") %>
