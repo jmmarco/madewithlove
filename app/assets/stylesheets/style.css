@@ -19,6 +19,10 @@ body {
   margin-top: 10px;
 }
 
+.navbar-brand {
+  font-family: 'Rubik', sans-serif;
+}
+
 .glyphicon-heart {
     font-size: 20px;
 }
@@ -115,4 +119,17 @@ a:hover {
 
 .featured-meals-gallery img {
   height: 200px;
+}
+
+.f-meals {
+  padding-top: 50px;
+}
+
+.f-meals a {
+  text-decoration: none !important;
+}
+
+.cuisine {
+  font-size: 3em;
+  font-family: 'Bungee', cursive;
 }

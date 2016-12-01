@@ -26,10 +26,26 @@ $(document).ready(function() {
   //   loadScript();
   //   initialize();
   // });
+  $(document).on('mouseenter', '.single-meal', function(e) {
+    console.log("fired")
+    var $t = $(this);
+    var marker = markers_obj[$t.data('meal-id')]
+    console.log(marker);
+    marker.setAnimation(google.maps.Animation.BOUNCE)
+  })
+
+  $(document).on('mouseleave', '.single-meal', function(e) {
+    console.log("firing")
+    var $t = $(this);
+    var marker = markers_obj[$t.data('meal-id')]
+    console.log(marker);
+    marker.setAnimation(null)
+  })
 
 });
 
 var map;
+var markers_obj = {};
 
 function initMap() {
 
@@ -43,7 +59,6 @@ function initMap() {
 
   var markers = [];
 
-
   // var content = "<div>" +
   // "<h3>"+ config +"</h3>" +
   // "</div>";
@@ -52,12 +67,9 @@ function initMap() {
 
   // Create info window
 
-  var mealListing = [];
 
 
   for (var i in map_results) {
-
-    // mealListing.push(new Meal(map_results[i].meal, map_results[i].chef_name, map_results[i].description, map_results[i].coordinates))
 
     var infoWindow = new google.maps.InfoWindow({
       content: "<div class='info-window'>" +
@@ -91,8 +103,7 @@ function initMap() {
     var chef = map_results[i].chef_name;
 
     markers.push(marker);
-
-
+    markers_obj[map_results[i]['meal_id']] = marker;
   }
 
   function setEvent(marker,map,infoWindow){
@@ -100,6 +111,5 @@ function initMap() {
       infoWindow.open(map, marker);
     });
   }
-
 
 }
