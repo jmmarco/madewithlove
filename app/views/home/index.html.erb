@@ -38,8 +38,6 @@
 
 
 
-
-
 <div class="container">
   <div class="row">
     <div class="col-md-12">
@@ -64,15 +62,21 @@
   </div>
 </div>
 
-<div class="container">
+
+<div class="container f-meals">
   <div class="row">
     <div class="col-md-12">
-      <%= form_tag("/meals/category", method: "get") do %>
-        <div class="form-group">
-          <%= label_tag(:category, "Select a category:") %>
-          <%= select_tag(:category, "<option>Americana</option><option>Chinese</option><option>Indian</option><option>Italian</option><option>Mexican</option><option>Thai</option>".html_safe) %>
-          <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+      <h4>Our current cuisine selection</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <% all_cusines.each do |c| %>
+      <a href="/meals/category/<%= c %>">
+        <div class="well text-center">
+          <span class="cuisine"><%= c %></span>
         </div>
+      </a>
       <% end %>
     </div>
   </div>

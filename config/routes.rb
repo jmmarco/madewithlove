@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   get "/meals/search" => "meals#search"
 
-  get "/meals/category" => "meals#category"
+  get "/meals/category/:category" => "meals#category"
 
   resources :meals
 
