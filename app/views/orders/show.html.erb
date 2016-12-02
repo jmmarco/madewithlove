@@ -1,6 +1,15 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <p id="notice"><%= notice %></p>
 
-<%= render :partial => "order" %>
+            <%= render :partial => "order" %>
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+        </div>
+      </div>
+      <%= link_to 'Back', :back %>
+    </div>
+  </div>
+</div>

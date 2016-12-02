@@ -16,7 +16,6 @@
             <% else %>
               <%= image_tag meal.image.url(:medium) %>
             <% end %>
-
             <%= link_to 'Order', meal_path(meal), class: "form-control btn btn-info order-btn" %>
           </div>
         <% end %>
@@ -28,4 +27,5 @@
     </div>
 
   </div>
+  <%= link_to 'Back', :back %>
 </div>
