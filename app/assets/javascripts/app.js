@@ -1,31 +1,5 @@
 $(document).ready(function() {
 
-  // function initMap() {
-  //   console.log("initMap fired");
-  //   var latlng = new google.maps.LatLng(-34.397, 150.644);
-  //   var myOptions = {
-  //     zoom: 8,
-  //     center: latlng,
-  //     mapTypeId: google.maps.MapTypeId.ROADMAP
-  //   };
-  //
-  //   console.log(document.getElementById("map"));
-  //   var map = new google.maps.Map(document.getElementById("map"),
-  //     myOptions);
-  // }
-
-  // var myKey = "AIzaSyBeCE8-G4WHfmtbqCxBIg60KlfyzFnZ4SY";
-  //
-  // function loadScript() {
-  //   var script = document.createElement('script');
-  //   script.src = "https://maps.googleapis.com/maps/api/js?key=" + myKey + "&callback=initialize";
-  //   document.body.appendChild(script);
-  // }
-
-  // $(function() {
-  //   loadScript();
-  //   initialize();
-  // });
   $(document).on('mouseenter', '.single-meal', function(e) {
     console.log("fired");
     var $t = $(this);
@@ -58,16 +32,6 @@ function initMap() {
   });
 
   var markers = [];
-
-  // var content = "<div>" +
-  // "<h3>"+ config +"</h3>" +
-  // "</div>";
-
-
-
-  // Create info window
-
-
 
   for (var i in map_results) {
 
