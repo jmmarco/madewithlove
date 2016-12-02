@@ -12,11 +12,21 @@
           <div class="col-md-4 single-meal" data-meal-id="<%= meal.id %>">
             <%= render :partial => "meal",  :layout => false , :locals => { :meal => meal } %>
             <% if meal.seed_image %>
-              <img class="img-responsive img-rounded" src="<%= meal.seed_image %>" alt="Meal Picture">
+              <%= link_to meal_path(meal) do %>
+                <img class="img-responsive img-rounded" src="<%= meal.seed_image %>" alt="Meal Picture">
+              <% end %>
             <% else %>
-              <%= image_tag meal.image.url(:medium) %>
+              <%= link_to meal_path(meal) do %>
+                <%= image_tag meal.image.url(:medium) %>
+              <% end %>
             <% end %>
-            <%= link_to 'Order', meal_path(meal), class: "form-control btn btn-info order-btn" %>
+
+            <% if current_user %>
+              <%= link_to 'Order', meal_path(meal), class: "form-control btn btn-info order-btn" %>
+            <% else %>
+              <%= link_to 'Order', "#", data: {toggle: "modal", target: "#login"}, class: "form-control btn btn-info order-btn" %>
+            <% end %>
+
           </div>
         <% end %>
       </div>
