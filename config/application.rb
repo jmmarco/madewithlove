@@ -26,5 +26,6 @@ module FinalProject
     config.active_record.default_timezone = :local
 
     config.assets.paths << Rails.root.join('node_modules')
+    config.assets.initialize_on_precompile = false
   end
 end
