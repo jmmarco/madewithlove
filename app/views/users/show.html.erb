@@ -60,30 +60,32 @@
         </div>
       <% end %>
       <hr>
-      <div class="row menu">
-        <div class="col-md-12">
-          <h4>My Menu</h4>
+      <% if @user.prepared_meals != [] %>
+        <div class="row menu">
+          <div class="col-md-12">
+            <h4>My Menu</h4>
+          </div>
         </div>
-      </div>
 
 
-      <div class="row">
-        <% if @user.id || !current_user %>
-          <% @user.prepared_meals.each do |meal| %>
-            <div class="col-md-3">
-              <%= render :partial => "/meals/meal", :locals => { :meal => meal } %>
-              <% if meal.seed_image %>
-                <img class="img-responsive order" src="<%= meal.seed_image %>" alt="Meal Picture">
-              <% else %>
-                <%= image_tag meal.image.url(:medium) %>
-              <% end %>
-                <br>
-              <%= link_to 'Order', meal_path(meal), class: "form-control btn btn-info" %>
-            </div>
+        <div class="row">
+          <% if @user.id || !current_user %>
+            <% @user.prepared_meals.each do |meal| %>
+              <div class="col-md-3">
+                <%= render :partial => "/meals/meal", :locals => { :meal => meal } %>
+                <% if meal.seed_image %>
+                  <img class="img-responsive order" src="<%= meal.seed_image %>" alt="Meal Picture">
+                <% else %>
+                  <%= image_tag meal.image.url(:medium) %>
+                <% end %>
+                  <br>
+                <%= link_to 'Order', meal_path(meal), class: "form-control btn btn-info" %>
+              </div>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
-      <hr>
+        </div>
+        <hr>
+      <% end %>
       <div class="row">
         <div class="col-md-12">
           <h4>Order history</h4>
