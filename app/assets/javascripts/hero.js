@@ -22,6 +22,9 @@ $(document).ready(function() {
   var y = Math.floor(heroTextLength * Math.random());
 
   var a = images[0];
-  document.getElementById('image').src = images[x];
-  document.getElementById("hero").innerHTML = heroText[y];
+  if (document.getElementById('image')) {
+    document.getElementById('image').src = images[x];
+    document.getElementById("hero").innerHTML = heroText[y];
+  }
+
 });
