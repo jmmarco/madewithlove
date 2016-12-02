@@ -76,7 +76,7 @@
                 <% if meal.seed_image %>
                   <img class="img-responsive order" src="<%= meal.seed_image %>" alt="Meal Picture">
                 <% else %>
-                  <%= image_tag meal.image.url(:medium) %>
+                  <%= image_tag meal.image.url(:medium), class: "img-responsive order" %>
                 <% end %>
                   <br>
                 <%= link_to 'Order', meal_path(meal), class: "form-control btn btn-info" %>
