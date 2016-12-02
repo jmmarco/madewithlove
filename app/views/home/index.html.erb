@@ -1,0 +1,71 @@
+<div class="carousel">
+  <div class="carousel-cell">
+    <div class="hero-box">
+      <h1 id="hero">Homemade meals<br>
+        made for you!
+      </h1>
+    </div>
+    <img id="image" class="img-responsive" alt="cooking">
+  </div>
+</div>
+
+
+<div class="container search">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-4">
+      <%= form_tag "/meals/search", method: "get", class: 'form-inline' do %>
+        <div class="form-group form-group-lg">
+          <%= label_tag(:query, "Search for meals:", class: "sr-only") %>
+          <%= text_field_tag :query, "",placeholder: "Search for meals", class: "form-control" %>
+          <%= submit_tag "Search", name: nil, class: "btn btn-danger btn-lg" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Featured Meals</h3>
+      <!-- Perhaps add featured meals here -->
+      <div class="featured-meals-gallery">
+
+        <% @featured_meals.each do |meal| %>
+          <% if meal.seed_image %>
+            <div class="gallery-cell">
+              <a href="/meals/<%= meal.id %>"><img src="<%= meal.seed_image %>" alt="Meal Picture"></a>
+            </div>
+          <% else %>
+            <div class="gallery-cell">
+              <a href="/meals/<%= meal.id %>"><%= image_tag meal.image.url(:medium) %></a>
+            </div>
+          <% end %>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container f-meals">
+  <div class="row">
+    <div class="col-md-12">
+      <h4>Our current cuisine selection</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <% all_cusines.each do |c| %>
+      <a href="/meals/category/<%= c %>">
+        <div class="well text-center">
+          <span class="cuisine"><%= c %></span>
+        </div>
+      </a>
+      <% end %>
+    </div>
+  </div>
+</div>

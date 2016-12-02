@@ -1,22 +1,22 @@
 <% content_for :page_js do %>
   <script type="text/javascript">
-     var map_results = JSON.parse('<%= raw(@results.to_json) %>');
+    var map_results = JSON.parse('<%= raw(@results.to_json) %>');
   </script>
 <% end %>
 
-
+<div class="container">
   <div class="row">
-
-    <div class="col-md-5">
+    <div class="col-md-6">
       <div class="row meal-listing">
         <% @meals.each do |meal| %>
-          <div class="col-md-4 single-meal">
-            <%= render :partial => "meal", :locals => { :layout => false , :@meal => meal } %>
-            <% if @meal.seed_image %>
-              <img class="img-responsive" src="<%= @meal.seed_image %>" alt="Meal Picture">
+          <div class="col-md-4 single-meal" data-meal-id="<%= meal.id %>">
+            <%= render :partial => "meal",  :layout => false , :locals => { :meal => meal } %>
+            <% if meal.seed_image %>
+              <img class="img-responsive" src="<%= meal.seed_image %>" alt="Meal Picture">
             <% else %>
               <%= image_tag meal.image.url(:medium) %>
             <% end %>
+            <%= link_to 'Order', meal_path(meal), class: "form-control btn btn-info order-btn" %>
           </div>
         <% end %>
       </div>
@@ -27,3 +27,5 @@
     </div>
 
   </div>
+  <%= link_to 'Back', :back %>
+</div>

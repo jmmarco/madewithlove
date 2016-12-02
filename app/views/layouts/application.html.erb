@@ -6,17 +6,19 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Bungee|Indie+Flower|Roboto" rel="stylesheet">
   </head>
 
   <body>
     <!-- Make sure all content is inside a Bootstrap container div -->
     <%= render 'layouts/header' %>
 
+
     <%= yield %>
 
     <%= yield :page_js %>
     <%= render 'layouts/footer' %>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzmOnXURd5fsGDcurhiD4oUGn13bFX928&callback=initMap"
-    async defer data-turbolinks-eval="false"></script>
+    async defer></script>
   </body>
 </html>

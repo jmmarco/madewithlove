@@ -21,7 +21,7 @@ class AuthController < ApplicationController
       })
   end
 
-  def new
+  def google
     redirect_to client.auth_code.authorize_url(:redirect_uri => redirect_uri,:scope => SCOPES,:access_type => "offline")
   end
 
@@ -43,12 +43,12 @@ class AuthController < ApplicationController
     @user.oauth_token = @access_token
     @user.save
 
-    redirect_to index_path_url
+    redirect_to index_path
   end
 
   def clear
     session.clear
-    redirect_to index_path_url
+    redirect_to index_path
   end
 
   # def success
@@ -60,6 +60,16 @@ class AuthController < ApplicationController
     uri.path = '/oauth2callback'
     uri.query = nil
     uri.to_s
+  end
+
+  # Regular login
+  def regular
+    @user =  User.find_by(email: params[:email])
+
+    if @user && @user.password == params[:password]
+      session[:email] = @user.email
+      redirect_to index_path
+    end
   end
 
 end

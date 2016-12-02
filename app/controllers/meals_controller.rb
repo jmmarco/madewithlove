@@ -1,23 +1,32 @@
 class MealsController < ApplicationController
   include ApplicationHelper
+  include MealsHelper
   before_action :set_meal, only: [:show, :edit, :update, :destroy]
 
   def search
     @meals = Meal.search(params[:query])
     @query = params[:query]
 
-    @results = []
-    @meals.each do |meal|
-      meal_hash = {}
-      meal_hash[:chef_name] = meal.chef.first_name
-      meal_hash[:coordinates] = meal.chef.geocode
-      @results << meal_hash
-    end
-
+    @results = meal_mapper(@meals)
+    # binding.pry
     if request.xhr?
       print results
       render json: results
     end
+  end
+
+  def category
+    @meals = Meal.where(cuisine: params[:category])
+    @query = params[:category]
+
+    @results = meal_mapper(@meals)
+    # binding.pry
+    if request.xhr?
+      print results
+      render json: results
+    end
+
+    render "search"
   end
 
   # GET /meals
@@ -29,14 +38,31 @@ class MealsController < ApplicationController
   # GET /meals/1
   # GET /meals/1.json
   def show
-    # @meal = Meal.find(params[:id])
     @order = Order.new
     @order.meal = set_meal
+    if current_user
+      user_favs = current_user.favorited_meals
+      @existing_fav = user_favs.find_by(meal_id: @meal.id)
+    end
   end
 
-  def category
-    @meals = Meal.where(cuisine: params[:category])
-    render "search"
+  def favorite
+    @meal = set_meal
+    user_favs = current_user.favorited_meals
+    existing_fav = user_favs.find_by(meal_id: @meal.id)
+    if existing_fav
+      existing_fav.destroy
+    else
+      favorite = FavoritedMeal.new
+      favorite.user = current_user
+      favorite.meal = @meal
+      favorite.save
+    end
+    if request.xhr?
+      200
+    else
+      redirect_to :back
+    end
   end
 
   # GET /meals/new
@@ -99,4 +125,5 @@ class MealsController < ApplicationController
     def meal_params
       params.require(:meal).permit(:name, :description, :cuisine, :chef_id, :price, :image)
     end
+
 end

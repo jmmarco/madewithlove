@@ -2,7 +2,7 @@
   "name": "madewithlove",
   "version": "1.0.0",
   "description": "Is a way to get the food for your weekday. Pick a meal for each day of the week from people who like to make and prepare them with love.",
-  "main": "app.js",
+  "main": "app/assets/javascripts/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,5 +18,10 @@
   "homepage": "https://github.com/jmmarco/madewithlove#readme",
   "dependencies": {
     "dotenv": "^2.0.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.13",
+    "gulp-imagemin": "^3.1.1"
   }
 }

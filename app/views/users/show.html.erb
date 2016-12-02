@@ -1,47 +1,92 @@
-<div class="row">
-  <div class="col-md-12">
-    <h3>Profile Details</h3>
-  </div>
-</div>
-<hr>
-<div class="row">
-  <div class="col-md-3">
-  <p id="notice"><%= notice %></p>
-  <% if @user.updated_image_file_name %>
-    <%= image_tag @user.updated_image.url(:medium) %>
-  <% elsif @user.chef_avatar %>
-    <img class="img-responsive avatar" src="<%= @user.chef_avatar %>" alt="Profile Picture">
-  <% else %>
-    <img class="img-responsive avatar" src="<%= @user.avatar %>" alt="Profile Picture">
-  <% end %>
-    <br>
-    <p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
-    <p>Email: <%= @user.email %></p>
-    <p>Member since: <%= Time.at(@user.created_at).strftime("%B %e, %Y") %></p>
-    <p>Member bio: <%= @user.bio %>
-  </div>
-  <% if current_user && @user.id == current_user.id %>
-    <div class="col-md-3 col-md-offset-6">
-      <h4>Order history</h4>
-      <% @user.orders.each do |order| %>
-        <%= render :partial => "/orders/order", :locals => { :@order => order } %>
-        <hr>
-      <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Profile Details</h3>
     </div>
-  <% end %>
-
-  <% if @user.id || !current_user %>
-    <div class="col-md-3 col-md-offset-6">
-      <h4>My Menu</h4>
-      <% @user.prepared_meals.each do |meal| %>
-        <%= render :partial => "/meals/meal", :locals => { :@meal => meal } %>
-        <% if @meal.seed_image %>
-          <img class="img-responsive" src="<%= @meal.   seed_image %>" alt="Meal Picture">
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-3">
+        <p id="notice"><%= notice %></p>
+        <% if @user.updated_image_file_name %>
+          <%= image_tag @user.updated_image.url(:medium), class:"img-responsive avatar" %>
+        <% elsif @user.chef_avatar %>
+          <%= image_tag @user.chef_avatar, class:"img-responsive avatar" %>
         <% else %>
-          <%= image_tag meal.image.url(:medium) %>
+          <%= image_tag @user.avatar, class:"img-responsive avatar" %>
         <% end %>
-        <hr>
+          <br>
+          <p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
+          <p>Email: <%= @user.email %></p>
+          <p>Member since: <%= Time.at(@user.created_at).strftime("%B %e, %Y") %></p>
+          <p>Member bio: <%= @user.bio %>
+          <br>
+          <% if current_user && @user.id == current_user.id %>
+            <p><%= link_to 'New Meal', new_meal_path, class: "form-control btn btn-info" %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class = "row">
+        <% if current_user && current_user.id == @user.id && current_user.sales.exists? %>
+          <div class="col-md-12">
+            <%= render :partial => '/orders/list', :locals => { :sales => @user.sales } %>
+          </div>
+        <% end %>
+      </div>
+
+      <% if @user_favs.length > 0 %>
+      <div class="row">
+          <div class="col-md-12">
+            <h3>Favorite Meals</h3>
+            <div class="featured-meals-gallery">
+              <% @user_favs.each do |meal| %>
+                <% if meal.seed_image %>
+                  <div class="gallery-cell">
+                    <a href="/meals/<%= meal.id %>"><img src="<%= meal.seed_image %>" alt="Meal Picture"></a>
+                  </div>
+                <% else %>
+                  <div class="gallery-cell">
+                    <a href="/meals/<%= meal.id %>"><%= image_tag meal.image.url(:medium) %></a>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
       <% end %>
+
+      <div class="row">
+        <% if @user.id || !current_user %>
+          <div class="col-md-3">
+            <h4>My Menu</h4>
+            <% @user.prepared_meals.each do |meal| %>
+              <%= render :partial => "/meals/meal", :locals => { :meal => meal } %>
+              <% if meal.seed_image %>
+                <img class="img-responsive" src="<%= meal.seed_image %>" alt="Meal Picture">
+              <% else %>
+                <%= image_tag meal.image.url(:medium) %>
+              <% end %>
+              <br>
+              <%= link_to 'Order', meal_path(meal), class: "form-control btn btn-info" %>
+              <hr>
+            <% end %>
+          </div>
+
+        <% if current_user && @user.id == current_user.id %>
+          <div class="col-md-3 col-md-offset-6">
+            <h4>Order history</h4>
+            <% @user.orders.each do |order| %>
+              <%= render :partial => "/orders/order", :locals => { :@order => order } %>
+              <hr>
+            <% end %>
+          </div>
+        <% end %>
+
+        <% end %>
+      </div>
     </div>
-  <% end %>
+  </div>
+  <%= link_to 'Back', :back %>
 </div>

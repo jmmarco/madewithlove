@@ -1,0 +1,29 @@
+<h4>Sales</h4>
+<table class="table table-hover table-striped">
+<tr>
+  <th>Client</th>
+  <th>Menu Item</th>
+  <th>Quantity</th>
+  <th>Delivery Time</th>
+  <th>Address</th>
+  <th>Total Price</th>
+  <th>Order Status</th>
+  <th>Update Status</th>
+  <th></th>
+</tr>
+<% sales.each do |order| %>
+  <tr>
+    <td><%= order.user.first_name %> <%= order.user.last_name %></td>
+    <td><%= order.meal.name %></td>
+    <td><%= order.quantity %></td>
+    <td><%= Time.at(order.delivery_time).strftime("%b %e, '%Y, at %I:%M %P") %></td>
+    <td><%= order.destination_address %></td>
+    <td><%= number_to_currency order.total_price %></td>
+    <td><%= order.status %></td>
+    <%= form_for(order) do |f| %>
+      <td><%= f.select :status, ["PENDING", "OUT FOR DELIVERY", "DELIVERED" ]%></td>
+      <td><%= f.submit "Update", class: "form-control btn btn-info" %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
