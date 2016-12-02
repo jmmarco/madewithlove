@@ -6,7 +6,7 @@
           <% if @meal.seed_image %>
             <img class="img-responsive img-rounded" src="<%= @meal.seed_image %>" alt="Meal Picture">
           <% else %>
-            <%= image_tag @meal.image.url(:large), class: "img-rounded" %>
+            <%= image_tag @meal.image.url(:medium), class: "img-responsive img-rounded" %>
           <% end %>
         </div>
       </div>
