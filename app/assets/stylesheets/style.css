@@ -87,6 +87,10 @@ a:hover {
     padding-top: 10px !important;
 }
 
+.single-meal img {
+
+}
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -151,13 +155,6 @@ a:hover {
   margin-top: 50px;
 }
 
-.hero-header {
-  background-size: cover;
-  height: 400px;
-  margin-bottom: 1em;
-  background-image: url(cooking_1.jpg)
-  background-repeat: no-repeat;
-}
 
 .hero-text {
   text-align: left;
