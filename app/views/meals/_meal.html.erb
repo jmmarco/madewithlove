@@ -26,7 +26,6 @@
   <% if current_user %>
     <%= render :partial => "meals/heart", locals: { existing_fav: current_user.has_favorited_meal?(meal), meal: meal }    %>
   <% end %>
-  <%= link_to 'Order', meal_path(meal) %>
   <% if meal.chef == current_user %> |
     <%= link_to 'Edit', edit_meal_path(meal) %> |
     <%= link_to 'Destroy', meal, method: :delete, data: { confirm: 'Are you sure?' } %>
