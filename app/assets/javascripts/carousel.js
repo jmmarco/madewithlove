@@ -17,5 +17,10 @@ $(document).ready(function() {
     imagesLoaded: true,
   });
 
+  $('.favorite-meals-gallery').flickity({
+    wrapAround: true,
+    pageDots: false
+  });
+
 
 });

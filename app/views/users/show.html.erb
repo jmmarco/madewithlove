@@ -39,12 +39,12 @@
       <div class="row">
           <div class="col-md-12">
             <h4>Favorite Meals</h4>
-            <div class="featured-meals-gallery">
+            <div class="favorite-meals-gallery center-block">
               <% @user_favs.each do |meal| %>
                 <% if meal.seed_image %>
                   <div class="gallery-cell">
                     <a href="/meals/<%= meal.id %>">
-                      <img class="img-responsive" src="<%= meal.seed_image %>" alt="Meal Picture">
+                      <img class="" src="<%= meal.seed_image %>" alt="Meal Picture">
                     </a>
                   </div>
                 <% else %>
