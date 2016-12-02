@@ -1,8 +1,12 @@
 <p>
   <strong>Review:</strong>
   <%= review.comment %>
-
+</p>
 <p>
   <strong>Rating:</strong>
   <%= review.rating %>
+</p>
+<p>
+  <strong>By:</strong>
+  <%= review.order.user.first_name %>
 </p>
