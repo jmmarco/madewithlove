@@ -1,8 +1,4 @@
-$(document).on('turbolinks:load', function() {
-
-   $(function () {
-     $('[data-toggle="popover"]').popover();
-   });
+$(document).ready(function() {
 
    // Target the element
    $("#profile img").popover({

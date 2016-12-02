@@ -10,9 +10,9 @@
     <div class="col-md-3 single-meal">
       <%= render :partial => "meal", :locals => { :layout => false , :meal => meal } %>
       <% if meal.seed_image %>
-        <img class="img-responsive" src="<%= meal.seed_image %>" alt="Meal Picture">
+        <img class="img-responsive img-rounded" src="<%= meal.seed_image %>" alt="Meal Picture">
       <% else %>
-        <%= image_tag meal.image.url(:medium) %>
+        <%= image_tag meal.image.url(:medium), class: "img-rounded" %>
       <% end %>
       <%= link_to 'Order', meal_path(meal), class: "form-control btn btn-info" %>
     </div>
