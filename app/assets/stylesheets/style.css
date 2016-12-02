@@ -220,3 +220,11 @@ a:hover {
 .button-length {
   width: 80px;
 }
+
+.favorite-meals-gallery {
+  width: 600px;
+}
+
+.favorite-meals-gallery img {
+  height: 160px;
+}
