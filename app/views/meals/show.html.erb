@@ -21,8 +21,7 @@
               <%= render :partial => "/reviews/review", locals: { :review => review } %>
             <% end %>
           <% end %>
-
-          <% if current_user %>
+          <% if current_user && !(current_user.id == @meal.chef.id) %>
             <%= render :partial => "/orders/form", :locals => { :order => @order, :meal => @meal } %>
           <% end %>
         </div>
