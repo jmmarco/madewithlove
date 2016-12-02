@@ -12,7 +12,7 @@
           <div class="col-md-4 single-meal" data-meal-id="<%= meal.id %>">
             <%= render :partial => "meal",  :layout => false , :locals => { :meal => meal } %>
             <% if meal.seed_image %>
-              <img class="img-responsive" src="<%= meal.seed_image %>" alt="Meal Picture">
+              <img class="img-responsive img-rounded" src="<%= meal.seed_image %>" alt="Meal Picture">
             <% else %>
               <%= image_tag meal.image.url(:medium) %>
             <% end %>

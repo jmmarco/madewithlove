@@ -26,9 +26,9 @@
                 <td><%= review.rating %></td>
                 <td><%= review.order.meal.name %></td>
                 <td><%= review.order.meal.chef.first_name %></td>
-                <td><%= link_to 'Show', review %></td>
-                <td><%= link_to 'Edit', edit_review_path(review) %></td>
-                <td><%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td><%= link_to 'Show', class: "btn btn-info", review %></td>
+                <td><%= link_to 'Edit',class: "btn btn-warning",  edit_review_path(review) %></td>
+                <td><%= link_to 'Destroy', class: "btn btn-danger" , review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
               </tr>
             <% end %>
           </tbody>

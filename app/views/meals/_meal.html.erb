@@ -1,4 +1,4 @@
-<div id="/meals/<%=meal.id%>" >
+<div class="meal-details" id="/meals/<%=meal.id%>">
   <p>
     <strong>Name:</strong>
     <%= meal.name %>
@@ -26,9 +26,9 @@
   <% if current_user %>
     <%= render :partial => "meals/heart", locals: { existing_fav: current_user.has_favorited_meal?(meal), meal: meal }    %>
   <% end %>
-  <% if meal.chef == current_user %> |
-    <%= link_to 'Edit', edit_meal_path(meal) %> |
-    <%= link_to 'Destroy', meal, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% if meal.chef == current_user %>
+    <%= link_to 'Edit', edit_meal_path(meal), class: "btn btn-warning" %>
+    <%= link_to 'Destroy', meal, method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' } %>
   <% end %>
   <br>
 </div>

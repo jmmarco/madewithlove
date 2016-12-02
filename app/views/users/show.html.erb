@@ -10,11 +10,11 @@
         <div class="col-md-3">
         <p id="notice"><%= notice %></p>
         <% if @user.updated_image_file_name %>
-          <%= image_tag @user.updated_image.url(:medium), class:"img-responsive avatar" %>
+          <%= image_tag @user.updated_image.url(:medium), class:"img-thumbnail avatar" %>
         <% elsif @user.chef_avatar %>
-          <%= image_tag @user.chef_avatar, class:"img-responsive avatar" %>
+          <%= image_tag @user.chef_avatar, class:"img-thumbnail avatar" %>
         <% else %>
-          <%= image_tag @user.avatar, class:"img-responsive avatar" %>
+          <%= image_tag @user.avatar, class:"img-thumbnail avatar" %>
         <% end %>
           <br>
           <p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
@@ -27,15 +27,14 @@
           <% end %>
         </div>
       </div>
-
-      <div class = "row">
+      <hr>
+      <div class="row">
         <% if current_user && current_user.id == @user.id && current_user.sales.exists? %>
           <div class="col-md-12">
             <%= render :partial => '/orders/list', :locals => { :sales => @user.sales } %>
           </div>
         <% end %>
       </div>
-
       <% if @user_favs.length > 0 %>
       <div class="row">
           <div class="col-md-12">
@@ -44,11 +43,15 @@
               <% @user_favs.each do |meal| %>
                 <% if meal.seed_image %>
                   <div class="gallery-cell">
-                    <a href="/meals/<%= meal.id %>"><img src="<%= meal.seed_image %>" alt="Meal Picture"></a>
+                    <a href="/meals/<%= meal.id %>">
+                      <img class="img-responsive" src="<%= meal.seed_image %>" alt="Meal Picture">
+                    </a>
                   </div>
                 <% else %>
                   <div class="gallery-cell">
-                    <a href="/meals/<%= meal.id %>"><%= image_tag meal.image.url(:medium) %></a>
+                    <a href="/meals/<%= meal.id %>">
+                      <%= image_tag meal.image.url(:medium) %>
+                    </a>
                   </div>
                 <% end %>
               <% end %>
@@ -56,36 +59,43 @@
           </div>
         </div>
       <% end %>
+      <hr>
+      <div class="row menu">
+        <div class="col-md-12">
+          <h4>My Menu</h4>
+        </div>
+      </div>
 
-      <div class="row">
-        <% if @user.id || !current_user %>
-          <div class="col-md-3">
-            <h4>My Menu</h4>
-            <% @user.prepared_meals.each do |meal| %>
+      <% if @user.id || !current_user %>
+        <div class="row">
+          <% @user.prepared_meals.each do |meal| %>
+            <div class="col-md-3">
               <%= render :partial => "/meals/meal", :locals => { :meal => meal } %>
               <% if meal.seed_image %>
-                <img class="img-responsive" src="<%= meal.seed_image %>" alt="Meal Picture">
+                <img class="img-responsive order" src="<%= meal.seed_image %>" alt="Meal Picture">
               <% else %>
                 <%= image_tag meal.image.url(:medium) %>
               <% end %>
               <br>
               <%= link_to 'Order', meal_path(meal), class: "form-control btn btn-info" %>
-              <hr>
-            <% end %>
-          </div>
+            </div>
+          <% end %>
+        </div>
 
-        <% if current_user && @user.id == current_user.id %>
-          <div class="col-md-3 col-md-offset-6">
-            <h4>Order history</h4>
-            <% @user.orders.each do |order| %>
-              <%= render :partial => "/orders/order", :locals => { :@order => order } %>
-              <hr>
-            <% end %>
-          </div>
-        <% end %>
+        <div class="row">
+          <% if current_user && @user.id == current_user.id %>
+            <div class="col-md-3">
+              <h4>Order history</h4>
+              <% @user.orders.each do |order| %>
+                <%= render :partial => "/orders/order", :locals => { :@order => order } %>
+                <hr>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
 
-        <% end %>
-      </div>
+      <% end %>
+
     </div>
   </div>
 </div>
