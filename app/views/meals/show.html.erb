@@ -16,14 +16,13 @@
           <%= render :partial => "meal", locals: { meal: @meal} %>
 
           <% if @meal.reviews %>
-            <hr>
+
             <% @meal.reviews.each do |review| %>
               <%= render :partial => "/reviews/review", locals: { :review => review } %>
             <% end %>
           <% end %>
 
           <% if current_user %>
-            <hr>
             <%= render :partial => "/orders/form", :locals => { :order => @order, :meal => @meal } %>
           <% end %>
         </div>
